@@ -35,7 +35,6 @@ class Image(BaseImage):
     class Meta:
         proxy = True
 
-
 class Pin(models.Model):
     submitter = models.ForeignKey(User)
     url = models.URLField(null=True)
@@ -47,3 +46,11 @@ class Pin(models.Model):
 
     def __unicode__(self):
         return self.url
+
+class Like(models.Model):
+    user = models.ForeignKey(User)
+    pin = models.ForeignKey(Pin)
+    liked = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return "test"

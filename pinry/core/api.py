@@ -3,9 +3,11 @@ from tastypie.authorization import DjangoAuthorization
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from tastypie.exceptions import Unauthorized
 from tastypie.resources import ModelResource
+from tastypie.utils import trailing_slash
+from django.conf.urls import url
 from django_images.models import Thumbnail
 
-from .models import Pin, Image
+from .models import Pin, Image, Like
 from ..users.models import User
 
 
@@ -87,11 +89,43 @@ class ImageResource(ModelResource):
         queryset = Image.objects.all()
         authorization = DjangoAuthorization()
 
+class LikeResource(ModelResource):
+    #pin = fields.ForeignKey('pinry.core.api.PinResource', 'pin')
+    
+    #user = fields.ForeignKey(UserResource, 'user')
+    #pin = fields.ForeignKey('PinResource', 'pin')
+
+    def obj_create(self, bundle, **kwargs):
+        pin = Pin.objects.get(pk=kwargs['pk'])
+        return super(LikeResource, self).obj_create(bundle, pin=pin, user=bundle.request.user)
+
+    def obj_delete(self, bundle, **kwargs):
+        pin = Pin.objects.get(pk=kwargs['pk'])
+        return super(LikeResource, self).obj_create(bundle, pin=pin, user=bundle.request.user)
+
+    def dehydrate(self, bundle):
+        return Like.objects.count()
+    
+    def apply_authorization_limits(self, request, object_list):
+        return object_list.filter(user=request.user)
+    
+
+    class Meta:
+        queryset = Like.objects.all()
+        #resource_name = 'like'
+        #fields = ['user', 'pin', 'liked']
+        allowed_methods = ['get', 'post', 'delete']
+        always_return_data = True
+        authorization = PinryAuthorization()
 
 class PinResource(ModelResource):
     submitter = fields.ToOneField(UserResource, 'submitter', full=True)
     image = fields.ToOneField(ImageResource, 'image', full=True)
     tags = fields.ListField()
+    like_count = fields.IntegerField(readonly=True)
+    liked = fields.BooleanField(readonly=True)
+    #likes = fields.ToManyField(LikeResource, lambda bundle: Like.objects.filter(pin=bundle.obj), full=True, null=True)
+    likes = fields.ToManyField(LikeResource, 'likes', full=False, null=True)
 
     def hydrate_image(self, bundle):
         url = bundle.data.get('url', None)
@@ -116,6 +150,28 @@ class PinResource(ModelResource):
 
     def dehydrate_tags(self, bundle):
         return map(str, bundle.obj.tags.all())
+
+    def dehydrate_like_count(self, bundle):
+        return bundle.obj.like_set.count()
+
+    def dehydrate_liked(self, bundle):
+        return bundle.obj.like_set.filter(user=bundle.request.user).exists()
+
+    def prepend_urls(self): # prepend_urls in 0.9.12
+        return [
+            url(r'^(?P<resource_name>%s)/(?P<pk>\w[\w/-]*)/likes%s$' % (
+                self._meta.resource_name, trailing_slash()),
+                self.wrap_view('dispatch_likes'),
+                name='api_parent_likes'),
+        ]
+
+    def dispatch_likes(self, request, **kwargs):
+        return LikeResource().dispatch('list', request, **kwargs)
+
+    """
+    def dehydrate_likes(self, bundle):
+        return 4
+    """
 
     def build_filters(self, filters=None):
         orm_filters = super(PinResource, self).build_filters(filters)

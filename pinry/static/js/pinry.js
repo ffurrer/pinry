@@ -75,6 +75,35 @@ $(window).load(function() {
             });
         });
 
+        // Increase / decrease like count if like button clicked
+        $('.icon-like').each(function() {
+            var thisPin = $(this);
+            $(this).off('click');
+            $(this).click(function() {
+                if ($(this).data('liked') == true) {
+                    var promise = unlikePin($(this).data('id'));
+                    // TODO: Change success() to done()
+                    promise.success(function(data) {
+                        thisPin.data('liked', false);
+                        thisPin.siblings('.like-count').text(data);
+                    });
+                    promise.error(function() {
+                        message('Problem unliking the pin.', 'alert alert-error');
+                    });
+                }
+                else {
+                    var promise = likePin($(this).data('id'));
+                    promise.success(function(data) {
+                        thisPin.data('liked', true);
+                        thisPin.siblings('.like-count').text(data);
+                    });
+                    promise.error(function() {
+                        message('Problem liking the pin.', 'alert alert-error');
+                    });
+                }
+            });
+        });
+
         // Show edit-buttons only on mouse over
         $('.pin').each(function(){
             var thisPin = $(this);

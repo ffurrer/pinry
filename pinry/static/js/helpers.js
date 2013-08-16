@@ -54,6 +54,22 @@ function postPinData(data) {
     });
 }
 
+function likePin(pinId) {
+    var apiUrl = '/api/v1/pin/'+pinId+'/likes/';
+    return $.ajax({
+        type: 'post',
+        url: apiUrl,
+        contentType: 'application/json',
+        data: '{}'
+    });
+}
+
+function unlikePin(pinId) {
+    var apiUrl = '/api/v1/pin/'+pinId+'/likes?format=json';
+    return $.ajax(apiUrl, {
+        type: 'DELETE'
+    });
+}
 
 function getUrlParameter(name) {
     var decode = decodeURI(
