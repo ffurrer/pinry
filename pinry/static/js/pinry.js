@@ -85,7 +85,9 @@ $(window).load(function() {
                     // TODO: Change success() to done()
                     promise.success(function(data) {
                         thisPin.data('liked', false);
-                        thisPin.siblings('.like-count').text(data);
+                        var likes = thisPin.data('like_count');
+                        likes--;
+                        thisPin.siblings('.like-count').text(likes);
                     });
                     promise.error(function() {
                         message('Problem unliking the pin.', 'alert alert-error');
@@ -95,6 +97,7 @@ $(window).load(function() {
                     var promise = likePin($(this).data('id'));
                     promise.success(function(data) {
                         thisPin.data('liked', true);
+                        thisPin.data('like_count', data);
                         thisPin.siblings('.like-count').text(data);
                     });
                     promise.error(function() {
