@@ -1,7 +1,7 @@
-from tastypie import fields
+from tastypie import fields, http
 from tastypie.authorization import DjangoAuthorization
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
-from tastypie.exceptions import Unauthorized
+from tastypie.exceptions import Unauthorized, ImmediateHttpResponse
 from tastypie.resources import ModelResource
 from tastypie.utils import trailing_slash
 from django.conf.urls import url
@@ -97,11 +97,16 @@ class LikeResource(ModelResource):
 
     def obj_create(self, bundle, **kwargs):
         pin = Pin.objects.get(pk=kwargs['pk'])
+        likes = Like.objects.filter(pin=pin, user=bundle.request.user)
+        if likes.exists():
+            raise ImmediateHttpResponse(http.HttpConflict("You are not allowed to like this Pin multiple times."))
         return super(LikeResource, self).obj_create(bundle, pin=pin, user=bundle.request.user)
 
-    def obj_delete(self, bundle, **kwargs):
+    def obj_delete_list(self, bundle, **kwargs):
         pin = Pin.objects.get(pk=kwargs['pk'])
-        return super(LikeResource, self).obj_create(bundle, pin=pin, user=bundle.request.user)
+
+        like = self.obj_get(bundle, pin=pin, user=bundle.request.user)
+        return super(LikeResource, self).obj_delete_list(bundle, pin=pin, user=bundle.request.user)
 
     def dehydrate(self, bundle):
         return Like.objects.count()
@@ -152,7 +157,7 @@ class PinResource(ModelResource):
         return map(str, bundle.obj.tags.all())
 
     def dehydrate_like_count(self, bundle):
-        return bundle.obj.like_set.count()
+        return bundle.obj.like_set.filter(pin=bundle.obj).count()
 
     def dehydrate_liked(self, bundle):
         return bundle.obj.like_set.filter(user=bundle.request.user).exists()

@@ -10,6 +10,8 @@
 /static/
 /*.egg-info/
 /pip-log.txt
+/pinry/core/migrations/
+/.env/
 
 # Buildout
 /eggs/
