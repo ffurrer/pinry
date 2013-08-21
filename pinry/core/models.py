@@ -45,7 +45,8 @@ class Pin(models.Model):
     tags = TaggableManager()
 
     def __unicode__(self):
-        return self.url
+        return u"%s" % self.id
+        # return u"%s" % (self.url if self.url is not None else "id: %s" % self.id)
 
 class Like(models.Model):
     user = models.ForeignKey(User)
@@ -53,4 +54,4 @@ class Like(models.Model):
     liked = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return "test"
+        return u"User <%s> liked Pin <%s> at <%s>" % (self.user.id, self.pin, self.liked)

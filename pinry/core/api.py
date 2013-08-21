@@ -108,7 +108,6 @@ class LikeResource(ModelResource):
     
     def apply_authorization_limits(self, request, object_list):
         return object_list.filter(user=request.user)
-    
 
     class Meta:
         queryset = Like.objects.all()
@@ -117,6 +116,7 @@ class LikeResource(ModelResource):
         allowed_methods = ['get', 'post', 'delete']
         always_return_data = True
         authorization = PinryAuthorization()
+
 
 class PinResource(ModelResource):
     submitter = fields.ToOneField(UserResource, 'submitter', full=True)

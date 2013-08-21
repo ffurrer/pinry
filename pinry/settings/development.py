@@ -8,9 +8,13 @@ TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(SITE_ROOT, 'development.db'),
-    }
+        'NAME': 'pinry',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'blabla',
+    },
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(SITE_ROOT, 'development.db'),
 }
 
 SECRET_KEY = 'fake-key'
