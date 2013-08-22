@@ -70,6 +70,9 @@ $(window).load(function() {
             }, 200);
             freezeScroll(false);
         });
+        $('.lightbox-wrapper').click(function() {
+            event.stopPropagation();
+        });
     }
     // End View Functions
 
