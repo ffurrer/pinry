@@ -58,10 +58,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.messages.context_processors.messages',
     'pinry.core.context_processors.template_settings',
+    'allauth.account.context_processors.account',
+    'allauth.socialaccount.context_processors.socialaccount',
 )
 AUTHENTICATION_BACKENDS = (
     'pinry.users.auth.backends.CombinedAuthBackend',
     'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
 
 
@@ -77,6 +81,7 @@ MESSAGE_TAGS = {
 }
 API_LIMIT_PER_PAGE = 50
 
+SITE_ID = 1
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -85,12 +90,42 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.sites',
     'south',
     'taggit',
     'compressor',
     'django_images',
     'pinry.core',
     'pinry.users',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # include the providers you want to enable:
+    # 'allauth.socialaccount.providers.bitly',
+    # 'allauth.socialaccount.providers.dropbox',
+    'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.linkedin',
+    # 'allauth.socialaccount.providers.openid',
+    # 'allauth.socialaccount.providers.persona',
+    # 'allauth.socialaccount.providers.soundcloud',
+    # 'allauth.socialaccount.providers.stackexchange',
+    # 'allauth.socialaccount.providers.twitch',
+    # 'allauth.socialaccount.providers.twitter',
+    # 'allauth.socialaccount.providers.vimeo',
+    # 'allauth.socialaccount.providers.weibo',
+)
+
+SOCIALACCOUNT_AUTO_SIGNUP = False
+SOCIALACCOUNT_PROVIDERS = (
+    { 
+    'facebook':
+        { 'SCOPE': ['email', 'publish_stream'],
+          'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
+          'METHOD': 'oauth2',  # 'js_sdk',  # ,
+          'LOCALE_FUNC': lambda request: 'de_CH'} 
+    }
 )
 
 IMAGE_PATH = 'pinry.core.utils.upload_path'

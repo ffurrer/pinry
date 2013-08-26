@@ -16,7 +16,6 @@ v1_api.register(UserResource())
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(v1_api.urls, namespace='api')),
 
     url(r'^pins/pin-form/$', TemplateView.as_view(template_name='core/pin_form.html'),
