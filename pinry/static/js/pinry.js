@@ -136,7 +136,13 @@ $(window).load(function() {
      * Load our pins using the pins template into our UI, be sure to define a
      * offset outside the function to keep a running tally of your location.
      */
-    function loadPins() {
+    function loadPins(order, requester_only) {
+        if (typeof order === 'undefined') {
+            order = "like_count";
+        }
+        if (typeof requester_only === 'undefined') {
+            requester_only = false;
+        }
         // Disable scroll
         $(window).off('scroll');
 
@@ -144,13 +150,17 @@ $(window).load(function() {
         $('.spinner').css('display', 'block');
 
         // Fetch our pins from the api using our current offset
-        var apiUrl = '/api/v1/pin/?format=json&order_by=-id&offset='+String(offset);
+        var apiUrl = '/api/v1/pin/?format=json&order_by='+order+'&offset='+String(offset);
+
         if (tagFilter) apiUrl = apiUrl + '&tag=' + tagFilter;
         if (userFilter) apiUrl = apiUrl + '&submitter__username=' + userFilter;
+        if (requester_only && !userFilter) apiUrl = apiUrl + '&submitter__username=' + currentUser.username;
+
         $.get(apiUrl, function(pins) {
             // Set which items are editable by the current user
-            for (var i=0; i < pins.objects.length; i++) 
+            for (var i=0; i < pins.objects.length; i++){
                 pins.objects[i].editable = (pins.objects[i].submitter.username == currentUser.username);
+            }
 
             // Use the fetched pins as our context for our pins template
             var template = Handlebars.compile($('#pins-template').html());
@@ -189,11 +199,35 @@ $(window).load(function() {
 
     // Set offset for loadPins and do our initial load
     var offset = 0;
-    loadPins();
+    loadPins('-id');
 
     // If our window gets resized keep the tiles looking clean and in our window
     $(window).resize(function() {
         tileLayout();
         lightbox();
     })
+    // Sorting according the most likes
+    $('#sorter-likes').click(function() {
+        sortPins('-like_count');
+    });
+
+    // Sorting according to the most recent uploads
+    $('#sorter-date').click(function() {
+        sortPins('-published');
+    });
+
+    // Show only users 
+    $('#sorter-mine').click(function() {
+        sortPins('-published', true);
+    });
+
+    function sortPins(order, requester_only) {
+        offset = 0;
+        $('#the-end').remove();
+        $('#pins').empty();
+        loadPins(order, requester_only);
+    }
+
 });
+
+

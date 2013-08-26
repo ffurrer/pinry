@@ -1,4 +1,4 @@
-from tastypie import fields, http
+from tastypie import fields, http, utils
 from tastypie.authorization import DjangoAuthorization
 from tastypie.constants import ALL, ALL_WITH_RELATIONS
 from tastypie.exceptions import Unauthorized, ImmediateHttpResponse
@@ -90,7 +90,7 @@ class ImageResource(ModelResource):
         authorization = DjangoAuthorization()
 
 class LikeResource(ModelResource):
-    pin = fields.ForeignKey('pinry.core.api.PinResource', 'pin')
+    pin = fields.ToOneField('pinry.core.api.PinResource', 'pin')
     user = fields.ToOneField(UserResource, 'user')
 
     def obj_create(self, bundle, **kwargs):
@@ -115,7 +115,7 @@ class LikeResource(ModelResource):
 
     class Meta:
         queryset = Like.objects.all()
-        #resource_name = 'like'
+        # resource_name = 'like'
         fields = ['user', 'pin', 'liked']
         allowed_methods = ['get', 'post', 'delete']
         always_return_data = True
@@ -130,10 +130,11 @@ class PinResource(ModelResource):
     submitter = fields.ToOneField(UserResource, 'submitter', full=True)
     image = fields.ToOneField(ImageResource, 'image', full=True)
     tags = fields.ListField()
-    like_count = fields.IntegerField(readonly=True)
+    published = fields.DateTimeField(readonly=True, help_text='When the pin was published.', attribute='published', default=utils.now)
+    like_count = fields.IntegerField(readonly=True, null=True, attribute='like_count')
     liked = fields.BooleanField(readonly=True)
     # likes = fields.ToManyField(LikeResource, lambda bundle: Like.objects.filter(pin=bundle.obj), full=True, null=True)
-    likes = fields.ToManyField(LikeResource, 'likes', full=False, null=True)
+    likes = fields.ToManyField(LikeResource, 'likes', related_name='pin', null=True, full=True)
 
     def hydrate_image(self, bundle):
         url = bundle.data.get('url', None)
@@ -161,6 +162,9 @@ class PinResource(ModelResource):
 
     def dehydrate_like_count(self, bundle):
         return bundle.obj.like_set.filter(pin=bundle.obj).count()
+
+    def dehydrate_likes(self, bundle):
+        return bundle.obj.like_set.filter(pin=bundle.obj)
 
     def dehydrate_liked(self, bundle):
         if bundle.request.user.id is None:
@@ -197,11 +201,16 @@ class PinResource(ModelResource):
             bundle.obj.tags.set(*tags)
         return super(PinResource, self).save_m2m(bundle)
 
+    def get_object_list(self, request):
+        from django.db.models import Count
+        queryset = super(PinResource, self).get_object_list(request)
+        return queryset.annotate(like_count=Count('like'))
+
     class Meta:
-        fields = ['id', 'url', 'origin', 'description']
-        ordering = ['id']
+        fields = ['id', 'url', 'origin', 'description', 'like_count', 'published']
+        ordering = ['id', 'like_count', 'published']
         filtering = {
-            'submitter': ALL_WITH_RELATIONS
+            'submitter': ALL_WITH_RELATIONS,
         }
         queryset = Pin.objects.all()
         resource_name = 'pin'
