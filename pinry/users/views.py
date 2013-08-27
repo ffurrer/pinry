@@ -37,6 +37,13 @@ class CreateUser(CreateView):
         login(self.request, user)
         return redirect
 
+# class SignupWithPermissions(SignupView):
+#     def form_valid(self, form):
+#         response = super(SignupView, self).form_valid(form)
+#         permissions = Permission.objects.filter(codename__in=['add_pin', 'add_image', 'add_like', 'del_like'])
+#         user.user_permissions = permissions
+#         return repsonse
+
 
 @login_required
 def logout_user(request):

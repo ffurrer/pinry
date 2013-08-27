@@ -94,19 +94,12 @@ class LikeResource(ModelResource):
     user = fields.ToOneField(UserResource, 'user', full=True)
 
     def obj_create(self, bundle, **kwargs):
-        print("creating")
         pin = Pin.objects.get(pk=kwargs['pk'])
         likes = Like.objects.filter(pin=pin, user=bundle.request.user)
-        print(likes)
-        print("bla")
+        user = User.objects.filter(id=bundle.request.user.id)[0]
         if likes.exists():
             raise ImmediateHttpResponse(http.HttpConflict("You are not allowed to like this Pin multiple times."))
-        print(bundle.request.user)
-        print(type(bundle.request.user))
-        print("wtf")
-        print(bundle.request.user.id)
-        print("bbb")
-        return super(LikeResource, self).obj_create(bundle, pin=pin, user=bundle.request.user)
+        return super(LikeResource, self).obj_create(bundle, pin=pin, user=user)
 
     def obj_delete_list(self, bundle, **kwargs):
         pin = Pin.objects.get(pk=kwargs['pk'])
@@ -207,6 +200,7 @@ class PinResource(ModelResource):
         tags = bundle.data.get('tags', None)
         if tags:
             bundle.obj.tags.set(*tags)
+        bundle.obj.likes = []
         return super(PinResource, self).save_m2m(bundle)
 
     def get_object_list(self, request):

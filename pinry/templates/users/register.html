@@ -15,6 +15,10 @@
                     <div class="form-actions">
                         <button type="submit" class="btn btn-primary">Register</button>
                     </div>
+                    
+                {% load socialaccount %}
+                {% providers_media_js %}
+                <a href='{% provider_login_url "facebook" method="oauth2" %}'>Facebook Connect</a>
                 </form>
             </div>
         </div>

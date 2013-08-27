@@ -117,14 +117,14 @@ INSTALLED_APPS = (
     # 'allauth.socialaccount.providers.weibo',
 )
 
-SOCIALACCOUNT_AUTO_SIGNUP = False
+SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_PROVIDERS = (
     { 
     'facebook':
         { 'SCOPE': ['email', 'publish_stream'],
-          'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
+          # 'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
           'METHOD': 'oauth2',  # 'js_sdk',  # ,
-          'LOCALE_FUNC': lambda request: 'de_CH'} 
+          'LOCALE_FUNC': lambda request: 'de'} 
     }
 )
 
@@ -134,3 +134,5 @@ IMAGE_SIZES = {
     'standard': {'size': [600, 0]},
     'square': {'crop': True, 'size': [125, 125]},
 }
+
+# AUTH_USER_MODEL = 'pinry.users.models.User'

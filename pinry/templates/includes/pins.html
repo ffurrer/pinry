@@ -34,10 +34,12 @@
                     {{/each}}
                     {{/if}}
                 </div>
-                <div class="likes pull-right">
-                    <div class="icon-like" data-like_count="{{like_count}}" data-liked="{{liked}}" data-id="{{id}}">like</div>
-                    <div class="like-count">{{like_count}}</div>
-                </div>
+                {{#if id}}
+                    <div class="likes pull-right">
+                        <div class="icon-like" data-like_count="{{like_count}}" data-liked="{{liked}}" data-id="{{id}}">like</div>
+                        <div class="like-count">{{like_count}}</div>
+                    </div>
+                {{/if}}
             </div>
         </div>
         {{/each}}

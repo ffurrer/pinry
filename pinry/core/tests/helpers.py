@@ -26,7 +26,7 @@ class UserFactory(factory.Factory):
 
     @factory.post_generation(extract_prefix='user_permissions')
     def set_user_permissions(self, create, extracted, **kwargs):
-        self.user_permissions = Permission.objects.filter(codename__in=['add_pin', 'add_image'])
+        self.user_permissions = Permission.objects.filter(codename__in=['add_pin', 'add_image', 'add_like', 'del_like'])
 
 
 class TagFactory(factory.Factory):

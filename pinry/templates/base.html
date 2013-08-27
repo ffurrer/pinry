@@ -38,10 +38,12 @@
         <script>
         var apiLimitPerPage = {{ API_LIMIT_PER_PAGE }},
             errors = {% if not messages %}null,{% else %}[
-                {% for message in messages %}{
+                {% for message in messages %}
+                {
                     tags: "{{ message.tags }}",
                     text: "{{ message }}"
-                }{% endfor %}
+                },
+                {% endfor %}
             ],{% endif %}
             currentUser = {
                 id: "{{ user.id }}",
