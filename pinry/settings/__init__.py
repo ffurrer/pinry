@@ -1,7 +1,9 @@
 import os
 
 from django.contrib.messages import constants as messages
+# from django.utils.translation import ugettext as _
 
+_ = ugettext = lambda x: x
 
 SITE_ROOT = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
 
@@ -14,10 +16,14 @@ ALLOW_NEW_REGISTRATIONS = True
 
 # Set to False to force users to login before seeing any pins. 
 PUBLIC = True
-
+LANGUAGES = (
+  ('de', _('German')),
+  ('en', _('English')),
+)
 
 TIME_ZONE = 'America/New_York'
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de-ch'
+
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -43,8 +49,9 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pinry.users.middleware.Public',
@@ -68,6 +75,9 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+LOCALE_PATHS = (
+    os.path.join(SITE_ROOT, 'pinry/locale'),
+)
 
 ROOT_URLCONF = 'pinry.urls'
 LOGIN_URL = '/login/'
@@ -91,10 +101,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django.contrib.sites',
+    'django.contrib.flatpages',
     'south',
     'taggit',
     'compressor',
     'django_images',
+    'pinry',
     'pinry.core',
     'pinry.users',
     'allauth',
@@ -134,5 +146,6 @@ IMAGE_SIZES = {
     'standard': {'size': [600, 0]},
     'square': {'crop': True, 'size': [125, 125]},
 }
+
 
 # AUTH_USER_MODEL = 'pinry.users.models.User'

@@ -70,7 +70,7 @@ $(window).load(function() {
                     tileLayout();
                 });
                 promise.error(function() {
-                    message('Problem deleting image.', 'alert alert-error');
+                    message(gettext('Problem deleting image.'), 'alert alert-error');
                 });
             });
         });
@@ -90,7 +90,7 @@ $(window).load(function() {
                         thisPin.siblings('.like-count').text(likes);
                     });
                     promise.error(function() {
-                        message('Problem unliking the pin.', 'alert alert-error');
+                        message(gettext('Problem unliking the pin.'), 'alert alert-error');
                     });
                 }
                 else {
@@ -101,7 +101,7 @@ $(window).load(function() {
                         thisPin.siblings('.like-count').text(data);
                     });
                     promise.error(function() {
-                        message('Problem liking the pin.', 'alert alert-error');
+                        message(gettext('Problem liking the pin.'), 'alert alert-error');
                     });
                 }
             });
@@ -121,6 +121,7 @@ $(window).load(function() {
 
         $('.spinner').css('display', 'none');
         blockContainer.css('height', colHeights.sort().slice(-1)[0]);
+        $('.dim.pinned').text(gettext('pinned by'));
     }
 
     /**
@@ -194,6 +195,7 @@ $(window).load(function() {
 
         // Up our offset, it's currently defined as 50 in our settings
         offset += apiLimitPerPage;
+        $('.dim.pinned').text(gettext('pinned by'));
     }
 
 
@@ -216,10 +218,16 @@ $(window).load(function() {
         sortPins('-published');
     });
 
-    // Show only users 
+    // Show only users pins
     $('#sorter-mine').click(function() {
         sortPins('-published', true);
     });
+
+    $('#about_bod').click(function() {
+        // alert("about");
+        console.log(gettext('pinned by'));
+    });
+    
 
     function sortPins(order, requester_only) {
         offset = 0;

@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView
@@ -9,6 +9,7 @@ from django_images.models import Thumbnail
 
 from .forms import ImageForm
 
+DEFAULT_TEMPLATE = 'flatpages/default.html'
 
 class CreateImage(JSONResponseMixin, LoginRequiredMixin, CreateView):
     template_name = None  # JavaScript-only view
@@ -32,3 +33,4 @@ class CreateImage(JSONResponseMixin, LoginRequiredMixin, CreateView):
 
     def form_invalid(self, form):
         return self.render_json_response({'error': form.errors})
+

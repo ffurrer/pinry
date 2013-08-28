@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-28 18:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: settings/__init__.py:20
+msgid "German"
+msgstr "Deutsch"
+
+#: settings/__init__.py:21
+msgid "English"
+msgstr "Englisch"
+
+#: templates/base.html:68
+msgid "New Pin"
+msgstr "Pin hinzufügen"
+
+#: templates/base.html:69
+msgid "Logout"
+msgstr "Abmelden"
+
+#: templates/base.html:71
+msgid "Login"
+msgstr "Anmelden"
+
+#: templates/base.html:72
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/base.html:95
+msgid "Like"
+msgstr "Like"
+
+#: templates/base.html:96
+msgid "Date"
+msgstr "Datum"
+
+#: templates/base.html:98
+msgid "My Images"
+msgstr "Meine Pins"
+
+#: templates/base.html:100
+msgid "About show my bod"
+msgstr "Über Zeig dein Bod"
+
+#: templates/flatpages/about.html:5
+msgid "BodyTitle"
+msgstr "&Uuml;ber Alessandro Zeig dein Bod"
+
+#: templates/flatpages/about.html:13
+msgid "Heading"
+msgstr "&Uuml;ber Alessandro Zeig dein Bod"
+
+#: templates/flatpages/about.html:15 templates/flatpages/default.html:9
+msgid "Hello"
+msgstr "Hallo"
+
+#: templates/flatpages/about.html:16 templates/flatpages/default.html:10
+msgid "Blubberli"
+msgstr "Blubberli in Duetsch"
+
+#: templates/includes/bookmarklet_link.html:2
+msgid "Bookmarklet"
+msgstr "Bookmarklet"
+
+#: users/forms.py:12
+msgid "A user with that username already exists."
+msgstr ""
+
+#: users/forms.py:14
+msgid "Username"
+msgstr ""
+
+#: users/forms.py:16
+msgid "Password"
+msgstr ""

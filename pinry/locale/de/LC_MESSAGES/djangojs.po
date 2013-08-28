@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-28 18:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: static/js/pinry.js:73
+msgid "Problem deleting image."
+msgstr "Problem beim löschen des Bildes."
+
+#: static/js/pinry.js:93
+msgid "Problem unliking the pin."
+msgstr "Problem beim unliken des Pins aufgetreten."
+
+#: static/js/pinry.js:104
+msgid "Problem liking the pin."
+msgstr "Problem beim liken des Pins aufgetreten."
+
+#: static/js/pinry.js:124 static/js/pinry.js.c:198 static/js/pinry.js.c:228
+msgid "pinned by"
+msgstr "Pin von"
+
+#~ msgid "Try"
+#~ msgstr "Versuche"

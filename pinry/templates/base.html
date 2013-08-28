@@ -1,5 +1,6 @@
 {% load static from staticfiles %}
 {% load compress %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -64,11 +65,11 @@
                 <ul class="nav pull-right">
                 {% if user.is_authenticated %}
                     <li>{% include "includes/bookmarklet_link.html" %}</li>
-                    <li><a onclick="pinForm()">New Pin</a></li>
-                    <li><a href="{% url 'users:logout' %}">Logout</a></li>
+                    <li><a onclick="pinForm()">{% trans "New Pin" %}</a></li>
+                    <li><a href="{% url 'users:logout' %}">{% trans "Logout" %}</a></li>
                 {% else %}
-                    <li><a href="{% url 'users:login' %}">Login</a></li>
-                    <li><a href="{% url 'users:register' %}">Register</a></li>
+                    <li><a href="{% url 'users:login' %}">{% trans "Login" %}</a></li>
+                    <li><a href="{% url 'users:register' %}">{% trans "Register" %}</a></li>
                 {% endif %}
                 </ul>
             </div>
@@ -89,6 +90,16 @@
         </div>
         <!-- End No Script -->
 
+        <!-- Sorting -->
+        <div id="sorter">
+            <div id="sorter-likes">{% trans "Like" %}</div>
+            <div id="sorter-date">{% trans "Date" %}</div>
+            {% if user.is_authenticated %}
+            <div id="sorter-mine">{% trans "My Images" %}</div>
+            {% endif %}
+            <div id="about_bod">{% trans "About show my bod" %}</div>
+        </div>
+
         <!-- Content -->
         {% block yield %}{% endblock %}
         <!-- End Content -->
@@ -106,6 +117,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.1.1/jquery.fineuploader.min.js"></script>
+        <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
         {% compress js %}
         <script src="{% static "js/helpers.js" %}"></script>
         <script src="{% static "js/messages.js" %}"></script>

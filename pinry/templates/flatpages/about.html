@@ -1,0 +1,18 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% trans "BodyTitle" %}</title>
+    </head>
+    <body>
+        <!-- Current Language: <br>{% get_language_info for LANGUAGE_CODE as lang %}{{ lang.name_local }}<br>
+        Language Code: <br>{{ LANGUAGE_CODE }}<br>
+
+        
+        Available Languages: <br>{% get_available_languages as LANGUAGES %}{{ LANGUAGES }} -->
+        <h1>{% trans "Heading" %}</h1>
+        {{ flatpage.content }}
+        {% trans "Hello" %}
+        {% trans "Blubberli" %}
+    </body>
+</html>
