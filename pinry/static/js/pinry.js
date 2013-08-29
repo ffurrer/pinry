@@ -84,9 +84,10 @@ $(window).load(function() {
                     var promise = unlikePin($(this).data('id'));
                     // TODO: Change success() to done()
                     promise.success(function(data) {
-                        thisPin.data('liked', false);
                         var likes = thisPin.data('like_count');
                         likes--;
+                        thisPin.data('liked', false);
+                        thisPin.data('like_count', likes);
                         thisPin.siblings('.like-count').text(likes);
                     });
                     promise.error(function() {
@@ -218,7 +219,7 @@ $(window).load(function() {
         sortPins('-published');
     });
 
-    // Show only users pins
+    // Show only user's pins
     $('#sorter-mine').click(function() {
         sortPins('-published', true);
     });

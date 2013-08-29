@@ -73,6 +73,44 @@ $(window).load(function() {
         $('.lightbox-wrapper').click(function() {
             event.stopPropagation();
         });
+        $('.dim.pinned').text(gettext('pinned by'));
+
+        // Increase / decrease like count if like button clicked
+        $('.lightbox-data .icon-like').click(function() {
+            thisPin = $(this);
+            backgroundPin = $('.pin-footer .icon-like[data-id='+$(this).data('id')+']');
+            if ($(this).data('liked') == true) {
+                var promise = unlikePin($(this).data('id'));
+                // TODO: Change success() to done()
+                promise.success(function(data) {
+                    var likes = thisPin.data('like_count');
+                    likes--;
+                    thisPin.data('liked', false);
+                    thisPin.data('like_count', likes);
+                    thisPin.siblings('.like-count').text(likes);
+                    backgroundPin.data('liked', false);
+                    backgroundPin.data('like_count', likes);
+                    backgroundPin.siblings('.like-count').text(likes);
+                });
+                promise.error(function() {
+                    message(gettext('Problem unliking the pin.'), 'alert alert-error');
+                });
+            }
+            else {
+                var promise = likePin($(this).data('id'));
+                promise.success(function(data) {
+                    thisPin.data('liked', true);
+                    thisPin.data('like_count', data);
+                    thisPin.siblings('.like-count').text(data);
+                    backgroundPin.data('liked', true);
+                    backgroundPin.data('like_count', data);
+                    backgroundPin.siblings('.like-count').text(data);
+                });
+                promise.error(function() {
+                    message(gettext('Problem liking the pin.'), 'alert alert-error');
+                });
+            }
+        });
     }
     // End View Functions
 

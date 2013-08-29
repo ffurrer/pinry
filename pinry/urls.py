@@ -10,6 +10,12 @@ admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
     url(r'', include('pinry.core.urls', namespace='core')),
+    # url(r'', include('pinry.users.urls', namespace='users')),
+    # url(r'^accounts/', include('allauth.urls')),
+)
+
+urlpatterns += patterns('',
+    url(r'', include('pinry.core.urls', namespace='core')),
     url(r'', include('pinry.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
     #Admin Urls
@@ -17,9 +23,6 @@ urlpatterns = i18n_patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-# urlpatterns += i18n_patterns('',
-#     url(r'^about/$', About().view(), name='about'),
-# )
 urlpatterns += i18n_patterns('django.contrib.flatpages.views',
     url(r'^about/$', 'flatpage', {'url': '/about/'}, name='about'),
     # url(r'^license/$', 'flatpage', {'url': '/license/'}, name='license'),

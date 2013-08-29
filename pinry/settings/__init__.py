@@ -22,7 +22,7 @@ LANGUAGES = (
 )
 
 TIME_ZONE = 'America/New_York'
-LANGUAGE_CODE = 'de-ch'
+LANGUAGE_CODE = 'de'
 
 USE_I18N = True
 USE_L10N = True
