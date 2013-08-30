@@ -10,6 +10,8 @@
  * Require: jQuery, Pinry JavaScript Helpers
  */
 
+var createBox;
+
 
 $(window).load(function() {
     // Start Helper Functions
@@ -44,7 +46,8 @@ $(window).load(function() {
 
 
     // Start View Functions
-    function createBox(context) {
+    createBox = function(context) {
+        console.log('bla');
         freezeScroll();
         $('body').append(renderTemplate('#lightbox-template', context));
         var box = $('.lightbox-background');

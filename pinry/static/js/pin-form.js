@@ -59,6 +59,7 @@ $(window).load(function() {
     // Start View Functions
     function createPinForm(editPinId) {
         $('body').append(renderTemplate('#pin-form-template', ''));
+        $('.dim.pinned').text(gettext('pinned by'));
         var modal = $('#pin-form'),
             formFields = [$('#pin-form-image-url'), $('#pin-form-description'),
             $('#pin-form-tags')],
@@ -195,6 +196,11 @@ $(window).load(function() {
     window.pinForm = function(editPinId) {
         editPinId = typeof editPinId !== 'undefined' ? editPinId : null;
         createPinForm(editPinId);
+        $('.new-pin').text(gettext('New Pin'));
+        $('#pin-form-submit').text(gettext('Post'));
+        $('.dim.pinned').text(gettext('pinned by'));
+
+        console.log("changing test");
     }
 
     if (getUrlParameter('pin-image-url')) {

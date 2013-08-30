@@ -61,10 +61,13 @@
         <!-- Navigation -->
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
-                <a href="{% url 'core:recent-pins' %}" class="brand pull-left">{{ SITE_NAME }}</a>
+                <!-- <a href="{% url 'core:recent-pins' %}" class="brand pull-left">{{ SITE_NAME }}</a> -->
+                <a href="{% url 'core:recent-pins' %}" class="brand pull-left"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a><p class="brand pull-left">Show Your Bod</p>
+
                 <ul class="nav pull-right">
+                    <li><a href="{% url 'about' %}" id="about_bod">{% trans "About" %}</a></li>
                 {% if user.is_authenticated %}
-                    <li>{% include "includes/bookmarklet_link.html" %}</li>
+                    <!-- <li>{% include "includes/bookmarklet_link.html" %}</li> -->
                     <li><a onclick="pinForm()">{% trans "New Pin" %}</a></li>
                     <li><a href="{% url 'users:logout' %}">{% trans "Logout" %}</a></li>
                 {% else %}
@@ -72,6 +75,37 @@
                     <li><a href="{% url 'users:register' %}">{% trans "Register" %}</a></li>
                 {% endif %}
                 </ul>
+                <!-- Sorting -->
+                <div class="sorter-tabs">
+                    <ul id="sorter">
+                        <li class="sorter-tab" id="sorter-likes">{% trans "Like" %}</li>
+                        <li class="sorter-tab" id="sorter-date">{% trans "Date" %}</li>
+                        {% if user.is_authenticated %}
+                        <li class="sorter-tab" id="sorter-mine">{% trans "My Images" %}</li>
+                        {% endif %}
+                        
+                    </ul>
+                </div>
+                <!-- End Sorting -->
+
+                <!-- Language Selector -->
+                <!-- <ul class="nav pull-right language">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "Language" %}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        {% for lang in LANGUAGES %}
+                            <li>
+                                    <form name="setLang{{ lang.1}}" action="/i18n/setlang/" method="POST">{% csrf_token %}
+                                        <input name="next" type="hidden" value="/" />
+                                        <input type="hidden" name="language" value="{{ lang.0 }}" />
+                                        <a href="#" onclick="document.setLang{{ lang.1 }}.submit();return false;">{{ lang.1 }}</a>
+                                    </form>
+                                </li>
+                            {% endfor %}    
+                        </ul>
+                    </li>
+                </ul> -->
+                <!-- End Language Selector -->
             </div>
         </div>
         <!-- End Navigation -->
@@ -90,16 +124,6 @@
         </div>
         <!-- End No Script -->
 
-        <!-- Sorting -->
-        <div id="sorter">
-            <div id="sorter-likes">{% trans "Like" %}</div>
-            <div id="sorter-date">{% trans "Date" %}</div>
-            {% if user.is_authenticated %}
-            <div id="sorter-mine">{% trans "My Images" %}</div>
-            {% endif %}
-            <div id="about_bod">{% trans "About show my bod" %}</div>
-        </div>
-
         <!-- Content -->
         {% block yield %}{% endblock %}
         <!-- End Content -->
@@ -111,6 +135,19 @@
         {% include "includes/pin_form.html" %}
         {% block extra_templates %}{% endblock %}
         <!-- End Templates -->
+
+        <!-- Banners Bottom -->
+        <div class="navbar navbar-fixed-bottom">
+            <div class="navbar-inner">
+                <ul class="nav pull-left">
+                    <li><a href="brand/1"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a></li>
+                    <li><a href="brand/2"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a></li>
+                    <li><a href="brand/3"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a></li>
+                    <li><a href="brand/4"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End Banners Bottom -->
 
         <!-- JavaScript -->
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

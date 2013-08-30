@@ -1,8 +1,12 @@
+{% load static from staticfiles %}
 {% load i18n %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>{% trans "BodyTitle" %}</title>
+        <link rel="stylesheet" href="{% static "css/lightbox.css" %}"/>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        
     </head>
     <body>
         <!-- Current Language: <br>{% get_language_info for LANGUAGE_CODE as lang %}{{ lang.name_local }}<br>
@@ -14,5 +18,12 @@
         {{ flatpage.content }}
         {% trans "Hello" %}
         {% trans "Blubberli" %}
+        <script src="{% static "js/lightbox.js" %}"></script>
+        <script>
+        $(window).load(function() {
+            createBox('<div class="lightbox-background"><div class="lightbox-wrapper">asdf</div></div>');
+        });
+        </script>
+        
     </body>
 </html>

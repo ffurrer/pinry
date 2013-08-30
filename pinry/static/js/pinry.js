@@ -55,6 +55,8 @@ $(window).load(function() {
             $(this).click(function() {
                 $(this).off('click');
                 pinForm($(this).data('id'));
+                $('.new-pin').text(gettext('New Pin'));
+                $('#pin-form-submit').text(gettext('Post'));
             });
         });
 

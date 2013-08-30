@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-28 18:41+0200\n"
+"POT-Creation-Date: 2013-08-30 15:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/js/pinry.js:73
-msgid "Problem deleting image."
-msgstr "Problem beim löschen des Bildes."
+#: static/js/lightbox.js:79 static/js/pinry.js:126 static/js/pinry.js.c:200
+#: static/js/pinry.js.c:230
+msgid "pinned by"
+msgstr "Pin von"
 
-#: static/js/pinry.js:93
+#: static/js/lightbox.js:99 static/js/pinry.js:95
 msgid "Problem unliking the pin."
 msgstr "Problem beim unliken des Pins aufgetreten."
 
-#: static/js/pinry.js:104
+#: static/js/lightbox.js:113 static/js/pinry.js:106
 msgid "Problem liking the pin."
 msgstr "Problem beim liken des Pins aufgetreten."
 
-#: static/js/pinry.js:124 static/js/pinry.js.c:198 static/js/pinry.js.c:228
-msgid "pinned by"
-msgstr "Pin von"
+#: static/js/pinry.js:58
+msgid "new pin"
+msgstr ""
+
+#: static/js/pinry.js:74
+msgid "Problem deleting image."
+msgstr "Problem beim löschen des Bildes."
+
+msgid "New Pin"
+msgstr "Neuer Pin"
+
+msgid "Post"
+msgstr "Posten"
 
 #~ msgid "Try"
 #~ msgstr "Versuche"
