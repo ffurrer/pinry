@@ -214,16 +214,19 @@ $(window).load(function() {
     // Sorting according the most likes
     $('#sorter-likes').click(function() {
         sortPins('-like_count');
+        toggleSorterClass($(this));
     });
 
     // Sorting according to the most recent uploads
     $('#sorter-date').click(function() {
         sortPins('-published');
+        toggleSorterClass($(this));
     });
 
     // Show only user's pins
     $('#sorter-mine').click(function() {
         sortPins('-published', true);
+        toggleSorterClass($(this));
     });
 
     $('#about_bod').click(function() {
@@ -237,6 +240,13 @@ $(window).load(function() {
         $('#the-end').remove();
         $('#pins').empty();
         loadPins(order, requester_only);
+    }
+
+    function toggleSorterClass(elem) {
+        $('#sorter-date').removeClass('active');
+        $('#sorter-mine').removeClass('active');
+        $('#sorter-likes').removeClass('active');
+        elem.addClass('active');
     }
 
 });

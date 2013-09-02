@@ -84,6 +84,7 @@ a {
     margin: 0px 7px;
     padding: 0px 13px;
     float: left;
+    cursor: pointer;
 /*    border-left: 1px solid #000;
     border-right: 1px solid #000;*/
     /*border-bottom: 1px solid #000;*/
@@ -92,6 +93,7 @@ a {
     background: #A3507E;
     color: #ddd;
 }
+
 .sorter-tabs {
    float:left;
    width:100%;
