@@ -59,11 +59,11 @@ msgstr ""
 
 #: templates/flatpages/about.html:5
 msgid "BodyTitle"
-msgstr "About Alessandro Show Your Bod"
+msgstr "About Alessandro Show Your Style"
 
 #: templates/flatpages/about.html:13
 msgid "Heading"
-msgstr "About Alessandro Show Your Bod"
+msgstr "About Alessandro Show Your Style"
 
 #: templates/flatpages/about.html:15 templates/flatpages/default.html:9
 msgid "Hello"
