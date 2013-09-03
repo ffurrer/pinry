@@ -65,14 +65,14 @@
                 <a href="{% url 'core:recent-pins' %}" class="brand pull-left"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a><p class="brand pull-left">Show Your Style</p>
 
                 <ul class="nav pull-right">
-                    <li><a href="{% url 'about' %}" id="about_bod">{% trans "About" %}</a></li>
+                    <li><a data-href="{% url 'about' %}" id="about_bod" class="lightbox">{% trans "About" %}</a></li>
                 {% if user.is_authenticated %}
                     <!-- <li>{% include "includes/bookmarklet_link.html" %}</li> -->
                     <li><a onclick="pinForm()">{% trans "New Pin" %}</a></li>
                     <li><a href="{% url 'users:logout' %}">{% trans "Logout" %}</a></li>
                 {% else %}
                     <li><a href="{% url 'users:login' %}">{% trans "Login" %}</a></li>
-                    <li><a href="{% url 'users:register' %}">{% trans "Register" %}</a></li>
+                    <!-- <li><a href="{% url 'users:register' %}">{% trans "Register" %}</a></li> -->
                 {% endif %}
                 </ul>
                 <!-- Sorting -->
@@ -131,6 +131,7 @@
         <!-- Templates -->
         {% include "includes/messages.html" %}
         {% include "includes/lightbox.html" %}
+        {% include "includes/lightbox_container.html" %}
         {% include "includes/pins.html" %}
         {% include "includes/pin_form.html" %}
         {% block extra_templates %}{% endblock %}
