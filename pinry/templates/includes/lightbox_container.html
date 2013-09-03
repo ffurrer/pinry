@@ -1,0 +1,17 @@
+{% verbatim %}
+    <script id="lightbox_container-template" type="text/x-handlebars-template">
+        <div class="lightbox-background">
+            <div class="lightbox-wrapper">
+                <div class="lightbox-data clearfix">
+                    <img src="{{image.thumbnail.image}}" width="{{image.thumbnail.width}}" height="{{image.thumbnail.height}}" style="padding-left:20px;float:right;"/>
+                    <h1 style="padding-top:20px;">{{title}}</h1>
+                    <p style="padding-top:20px;">
+                    {{content}}
+                    </p>
+                    <p>
+                    <a href="{{link}}" target="_blank">{{link}}</a>
+                </div>
+            </div>
+        </div>
+    </script>
+{% endverbatim %}

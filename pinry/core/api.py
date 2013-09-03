@@ -7,7 +7,7 @@ from tastypie.utils import trailing_slash
 from django.conf.urls import url
 from django_images.models import Thumbnail
 
-from .models import Pin, Image, Like
+from .models import Pin, Image, Like, LightBox
 from ..users.models import User
 
 
@@ -125,6 +125,25 @@ class LikeResource(ModelResource):
             'user': ALL,
             'pin': ALL,
         }
+
+class LightBoxResource(ModelResource):
+    image = fields.ToOneField(ImageResource, 'image', full=True)
+    published = fields.DateTimeField(
+        readonly=True,
+        help_text='When the page was published.',
+        attribute='published',
+        default=utils.now
+    )
+    def hydrate_image(self, bundle):
+        url = bundle.data.get('url', None)
+        if url:
+            image = Image.objects.create_for_url(url)
+            bundle.data['image'] = '/api/v1/image/{}/'.format(image.pk)
+        return bundle
+
+    class Meta:
+        queryset = LightBox.objects.all()
+        resource_name = 'lightbox'
 
 
 class PinResource(ModelResource):

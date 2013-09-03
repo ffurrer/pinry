@@ -199,8 +199,6 @@ $(window).load(function() {
         $('.new-pin').text(gettext('New Pin'));
         $('#pin-form-submit').text(gettext('Post'));
         $('.dim.pinned').text(gettext('pinned by'));
-
-        console.log("changing test");
     }
 
     if (getUrlParameter('pin-image-url')) {

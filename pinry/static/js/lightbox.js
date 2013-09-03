@@ -47,7 +47,6 @@ $(window).load(function() {
 
     // Start View Functions
     createBox = function(context) {
-        console.log('bla');
         freezeScroll();
         $('body').append(renderTemplate('#lightbox-template', context));
         var box = $('.lightbox-background');
@@ -117,6 +116,40 @@ $(window).load(function() {
     }
     // End View Functions
 
+    // Start View Functions
+    createInfoBox = function(context) {
+        freezeScroll();
+        $('body').append(renderTemplate('#lightbox_container-template', context));
+        var box = $('.lightbox-background');
+        box.css('height', $(document).height());
+        // $('.lightbox-image-wrapper').css('height', 600);
+        box.fadeIn(200);
+        // $('.lightbox-image').load(function() {
+            // $(this).fadeIn(200);
+        // });
+        $('.lightbox-wrapper').css({
+            'width': 600,
+            'margin-top': 70,
+            'margin-bottom': 70,
+            'margin-left': -600/2,
+            'padding': 20
+        });
+        if ($('.lightbox-wrapper').height()+140 > $(window).height())
+            $('.lightbox-background').height($('.lightbox-wrapper').height()+140);
+
+        box.click(function() {
+            $(this).fadeOut(200);
+            setTimeout(function() {
+                box.remove();
+            }, 200);
+            freezeScroll(false);
+        });
+        $('.lightbox-wrapper').click(function() {
+            event.stopPropagation();
+        });
+    }
+    // End View Functions
+
 
     // Start Global Init Function
     window.lightbox = function() {
@@ -125,13 +158,30 @@ $(window).load(function() {
             $(this).off('click');
             $(this).click(function(e) {
                 e.preventDefault();
-                var promise = getPinData($(this).data('id'));
-                promise.success(function(pin) {
-                    createBox(pin);
-                });
-                promise.error(function() {
-                    message('Problem fetching pin data.', 'alert alert-error');
-                });
+                // console.log($(this));
+                if ($(this).data('id') !== undefined) {
+                    var promise = getPinData($(this).data('id'));
+
+                    promise.success(function(pin) {
+                        // console.log(pin);
+                        createBox(pin);
+                    });
+                    promise.error(function() {
+                        message('Problem fetching pin data.', 'alert alert-error');
+                    });
+                }
+                else {
+                    var promise = getLightbox($(this).data('lightboxid'));
+
+                    promise.success(function(data) {
+                        console.log(data);
+                        createInfoBox(data);
+                    });
+                    promise.error(function() {
+                        message('Problem fetching data.', 'alert alert-error');
+                    });
+                }
+                
             });
         });
     }

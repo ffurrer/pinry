@@ -3,7 +3,13 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 from tastypie.api import Api
 
-from .api import ImageResource, ThumbnailResource, PinResource, UserResource
+from .api import (
+    ImageResource,
+    ThumbnailResource,
+    PinResource,
+    UserResource,
+    LightBoxResource,
+)
 from .views import CreateImage
 
 
@@ -12,6 +18,7 @@ v1_api.register(ImageResource())
 v1_api.register(ThumbnailResource())
 v1_api.register(PinResource())
 v1_api.register(UserResource())
+v1_api.register(LightBoxResource())
 
 admin.autodiscover()
 

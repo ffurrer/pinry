@@ -55,3 +55,14 @@ class Like(models.Model):
 
     def __unicode__(self):
         return u"User <%s> liked Pin <%s> at <%s>" % (self.user.id, self.pin, self.liked)
+
+class LightBox(models.Model):
+    title = models.TextField()
+    content = models.TextField(blank=True, null=True)
+    link = models.URLField(null=True)
+    description = models.TextField(blank=True, null=True)
+    published = models.DateTimeField(auto_now_add=True)
+    image = models.ForeignKey(Image, related_name='lightbox')
+
+    def __unicode__(self):
+        return u"%s" % self.id

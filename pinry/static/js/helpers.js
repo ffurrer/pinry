@@ -37,6 +37,10 @@ function getPinData(pinId) {
     return $.get(apiUrl);
 }
 
+function getLightbox(lightBoxId) {
+    var apiUrl = '/api/v1/lightbox/'+lightBoxId+'/?format=json';
+    return $.get(apiUrl);
+}
 
 function deletePinData(pinId) {
     var apiUrl = '/api/v1/pin/'+pinId+'/?format=json';
