@@ -63,15 +63,17 @@
             <div class="navbar-inner">
                 <!-- <a href="{% url 'core:recent-pins' %}" class="brand pull-left">{{ SITE_NAME }}</a> -->
                 <a href="{% url 'core:recent-pins' %}" class="brand pull-left"><img src="{% static "img/alessandro-logo.png" %}" style="height:50px"></a><p class="brand pull-left">Show Your Style</p>
-
+                {% load socialaccount %}
+                {% providers_media_js %}
                 <ul class="nav pull-right">
-                    <li><a data-href="{% url 'about' %}" id="about_bod" class="lightbox">{% trans "About" %}</a></li>
+                    <li><a data-lightboxid="1" id="about_bod" class="lightbox">{% trans "About" %}</a></li>
                 {% if user.is_authenticated %}
                     <!-- <li>{% include "includes/bookmarklet_link.html" %}</li> -->
                     <li><a onclick="pinForm()">{% trans "New Pin" %}</a></li>
                     <li><a href="{% url 'users:logout' %}">{% trans "Logout" %}</a></li>
                 {% else %}
-                    <li><a href="{% url 'users:login' %}">{% trans "Login" %}</a></li>
+                    <li><a href='{% provider_login_url "facebook" method="oauth2" %}'>Login</a></li>
+                    <!-- <li><a href="{% url 'users:login' %}">{% trans "Login" %}</a></li> -->
                     <!-- <li><a href="{% url 'users:register' %}">{% trans "Register" %}</a></li> -->
                 {% endif %}
                 </ul>
