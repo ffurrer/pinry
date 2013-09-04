@@ -89,6 +89,7 @@ $(window).load(function() {
                         var likes = thisPin.data('like_count');
                         likes--;
                         thisPin.data('liked', false);
+                        thisPin.removeClass('liked');
                         thisPin.data('like_count', likes);
                         thisPin.siblings('.like-count').text(likes);
                     });
@@ -101,6 +102,7 @@ $(window).load(function() {
                     promise.success(function(data) {
                         thisPin.data('liked', true);
                         thisPin.data('like_count', data);
+                        thisPin.addClass('liked');
                         thisPin.siblings('.like-count').text(data);
                     });
                     promise.error(function() {

@@ -88,11 +88,13 @@ $(window).load(function() {
                     var likes = thisPin.data('like_count');
                     likes--;
                     thisPin.data('liked', false);
+                    thisPin.removeClass('liked');
                     thisPin.data('like_count', likes);
                     thisPin.siblings('.like-count').text(likes);
                     backgroundPin.data('liked', false);
                     backgroundPin.data('like_count', likes);
                     backgroundPin.siblings('.like-count').text(likes);
+                    backgroundPin.removeClass('liked');
                 });
                 promise.error(function() {
                     message(gettext('Problem unliking the pin.'), 'alert alert-error');
@@ -102,11 +104,13 @@ $(window).load(function() {
                 var promise = likePin($(this).data('id'));
                 promise.success(function(data) {
                     thisPin.data('liked', true);
+                    thisPin.addClass('liked');
                     thisPin.data('like_count', data);
                     thisPin.siblings('.like-count').text(data);
                     backgroundPin.data('liked', true);
                     backgroundPin.data('like_count', data);
                     backgroundPin.siblings('.like-count').text(data);
+                    backgroundPin.addClass('liked');
                 });
                 promise.error(function() {
                     message(gettext('Problem liking the pin.'), 'alert alert-error');
