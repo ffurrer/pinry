@@ -27,13 +27,7 @@ a:hover, a:focus {
 .navbar-fixed-top .navbar-inner {
     background: #000;
     background-image: none;
-   /* -webkit-box-shadow: 0 1px 0 #bbb;
-       -moz-box-shadow: 0 1px 0 #bbb;
-            box-shadow: 0 1px 0 #bbb;*/
     /*border-bottom: 1px solid #bbb;*/
-    -webkit-box-shadow: 0 0px 0 #bbb;
-       -moz-box-shadow: 0 0px 0 #bbb;
-            box-shadow: 0 0px 0 #bbb;
     /*filter: none;*/
     height: 48px;
     border-width: 0 0 0px;
@@ -74,15 +68,20 @@ a:hover, a:focus {
     min-height: 74px;
     text-shadow:-1px -1px 1px #000000;
 }
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+    -webkit-box-shadow: 0px 4px 12px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 4px 12px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px 4px 12px 3px rgba(0,0,0,0.5);
+}
 
 .navbar-inner.bottom {
     min-height: 0px;
     background: #000;
     border-width: 0px 0px 0px 0px;
     /*border-color: #cd1460;*/
-    -webkit-box-shadow: 0px -5px 12px 3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -5px 12px 3px rgba(0,0,0,0.75);
-    box-shadow: 0px -5px 12px 3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -4px 12px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px -4px 12px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px -4px 12px 3px rgba(0,0,0,0.5);
 }
 
 .navbar .brand {
@@ -160,9 +159,6 @@ a:hover, a:focus {
     height: 37px;
     background:transparent;
     margin-top: -33px;
-    -webkit-box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
-    box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
 }
 .sorter-tabs ul {
    clear:left;
