@@ -201,6 +201,14 @@ a:hover, a:focus {
     box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
     border-radius: 0px 0px 2px 2px;
 }
+.sorter-tabs ul > :last-child.active,
+.sorter-tabs ul > :last-child.active:hover {
+    border-radius: 0px 2px 2px 2px;
+}
+.sorter-tabs ul > :first-child.active,
+.sorter-tabs ul > :first-child.active:hover {
+    border-radius: 2px 0px 2px 2px;
+}
 #sorter {
     height: 37px;
 }
