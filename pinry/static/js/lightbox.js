@@ -126,16 +126,16 @@ $(window).load(function() {
         $('body').append(renderTemplate('#lightbox_container-template', context));
         var box = $('.lightbox-background');
         box.css('height', $(document).height());
-        // $('.lightbox-image-wrapper').css('height', 600);
+        // $('.lightbox-image-wrapper').css('height', 634);
         box.fadeIn(200);
         // $('.lightbox-image').load(function() {
             // $(this).fadeIn(200);
         // });
         $('.lightbox-wrapper').css({
-            'width': 600,
+            'width': 524,
             'margin-top': 70,
             'margin-bottom': 70,
-            'margin-left': -600/2,
+            'margin-left': -524/2,
             'padding': 20
         });
         if ($('.lightbox-wrapper').height()+140 > $(window).height())
