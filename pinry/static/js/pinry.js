@@ -203,10 +203,40 @@ $(window).load(function() {
         $('.dim.pinned').text(gettext('pinned by'));
     }
 
+    /**
+     * Load our brandpartners using the brandpartner template 
+     * into our bottom navigation.
+     */
+    function loadBrandpartner(start) {
+        if (typeof start === 'undefined') {
+            start = 0;
+        }
+
+        // Fetch our brandpartner from the api starting at start
+        var apiUrl = '/api/v1/lightbox/?format=json&offset='+String(start);
+
+        $.get(apiUrl, function(brandpartners) {
+
+            // Use the fetched pins as our context for our pins template
+            var template = Handlebars.compile($('#brandpartner-template').html());
+            var html = template({brandpartners: brandpartners.objects});
+
+            // Append the newly compiled data to our container
+            $('#brandpartners').append(html);
+
+            $('#brandpartners').ajaxStop(function() {
+                $('img').load(function() {
+                    $(this).fadeIn(300);
+                });
+            });
+        });
+    }
+
 
     // Set offset for loadPins and do our initial load
     var offset = 0;
     loadPins('-id');
+    loadBrandpartner(1);
 
     // If our window gets resized keep the tiles looking clean and in our window
     $(window).resize(function() {
@@ -229,11 +259,6 @@ $(window).load(function() {
     $('#sorter-mine').click(function() {
         sortPins('-published', true);
         toggleSorterClass($(this));
-    });
-
-    $('#about_bod').click(function() {
-        // alert("about");
-        console.log(gettext('pinned by'));
     });
     
 

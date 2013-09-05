@@ -162,12 +162,10 @@ $(window).load(function() {
             $(this).off('click');
             $(this).click(function(e) {
                 e.preventDefault();
-                // console.log($(this));
                 if ($(this).data('id') !== undefined) {
                     var promise = getPinData($(this).data('id'));
 
                     promise.success(function(pin) {
-                        // console.log(pin);
                         createBox(pin);
                     });
                     promise.error(function() {
@@ -178,7 +176,6 @@ $(window).load(function() {
                     var promise = getLightbox($(this).data('lightboxid'));
 
                     promise.success(function(data) {
-                        console.log(data);
                         createInfoBox(data);
                     });
                     promise.error(function() {

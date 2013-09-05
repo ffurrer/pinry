@@ -137,6 +137,7 @@
         {% include "includes/messages.html" %}
         {% include "includes/lightbox.html" %}
         {% include "includes/pins.html" %}
+        {% include "includes/brandpartner.html" %}
         {% include "includes/lightbox_container.html" %}
         {% include "includes/pin_form.html" %}
         {% block extra_templates %}{% endblock %}
@@ -145,11 +146,7 @@
         <!-- Banners Bottom -->
         <div class="navbar navbar-fixed-bottom">
             <div class="navbar-inner bottom">
-                <ul class="nav pull-left">
-                    <li><a href="brand/1"><img src="{% static "img/alessandro-logo.png" %}" style="height:30px"></a></li>
-                    <li><a href="brand/2"><img src="{% static "img/alessandro-logo.png" %}" style="height:30px"></a></li>
-                    <li><a href="brand/3"><img src="{% static "img/alessandro-logo.png" %}" style="height:30px"></a></li>
-                    <li><a href="brand/4"><img src="{% static "img/alessandro-logo.png" %}" style="height:30px"></a></li>
+                <ul class="nav pull-left" id="brandpartners">
                 </ul>
             </div>
         </div>

@@ -96,7 +96,7 @@ a:hover, a:focus {
     margin-right: -1000px;
 }
 
-.navbar .nav > li > a {
+.navbar-fixed-top .nav > li > a {
     background: #cd1460;;
     -webkit-border-radius: 2px;
        -moz-border-radius: 2px;
@@ -117,7 +117,7 @@ a:hover, a:focus {
     margin-right: 14px;
 }
 
-.navbar .nav > li > a:hover {
+.navbar-fixed-top .nav > li > a:hover {
     background: #fff;
     color: #cd1460;
     text-shadow: none;
@@ -133,6 +133,9 @@ a:hover, a:focus {
     padding: 0px 13px;
 }
 
+.navbar-fixed-bottom .nav > li > a > img {
+    height: 30px;
+}
 
 #bookmarklet {
     cursor: move;

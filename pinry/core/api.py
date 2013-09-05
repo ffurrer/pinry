@@ -144,6 +144,7 @@ class LightBoxResource(ModelResource):
     class Meta:
         queryset = LightBox.objects.all()
         resource_name = 'lightbox'
+        fields = ['id', 'content', 'title', 'link', 'description']
 
 
 class PinResource(ModelResource):
