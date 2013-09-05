@@ -55,7 +55,7 @@ class UserResource(ModelResource):
         }
         queryset = User.objects.all()
         resource_name = 'user'
-        fields = ['username']
+        fields = ['username', 'first_name']
         include_resource_uri = False
 
 

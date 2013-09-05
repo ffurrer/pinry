@@ -26,7 +26,13 @@
                 </div>
                 <div class="text pull-right">
                     <span class="dim pinned">pinned by</span>
-                    <a href="/pins/user/{{submitter.username}}/">{{submitter.username}}</a>
+                    <a href="/pins/user/{{submitter.username}}/">
+                        {{#if submitter.first_name}}
+                            {{submitter.first_name}}
+                        {{else}}
+                            {{submitter.username}}
+                        {{/if}}
+                    </a>
                 </div>
                 {{#if id}}
                     <div class="likes pull-right">
