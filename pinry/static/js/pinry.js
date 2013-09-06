@@ -263,6 +263,12 @@ $(window).load(function() {
         sortPins('-published', true);
         toggleSorterClass($(this));
     });
+
+    $("#login_button").hover(function(){
+        $("#fb-logo").css("background-image", 'url("../static/img/facebook_f_iv.png")');
+        },function(){
+        $("#fb-logo").css("background-image", 'url("../static/img/facebook_f.png")');
+    });
     
 
     function sortPins(order, requester_only) {
