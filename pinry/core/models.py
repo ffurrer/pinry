@@ -47,6 +47,10 @@ class Pin(models.Model):
     published = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
 
+    def admin_image(self):
+        return '<img src="/media/%s" style="height:50px;"/>' % self.image.get_by_size('thumbnail').image
+    admin_image.allow_tags = True
+
     def __unicode__(self):
         return u"%s" % self.id
         # return u"%s" % (self.url if self.url is not None else "id: %s" % self.id)

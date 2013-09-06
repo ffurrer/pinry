@@ -5,7 +5,7 @@
  * Updated: Apr 5th, 2013
  * Require: jQuery, Pinry JavaScript Helpers
  */
-
+sorting_order = '';
 
 $(window).load(function() {
     /**
@@ -125,7 +125,9 @@ $(window).load(function() {
         });
 
         $('.spinner').css('display', 'none');
-        blockContainer.css('height', colHeights.sort().slice(-1)[0]);
+        blockContainer.css('height', colHeights.sort(function(a,b) {
+            return a - b;
+        }).slice(-1)[0]);
         $('.dim.pinned').text(gettext('pinned by'));
     }
 
@@ -135,7 +137,7 @@ $(window).load(function() {
     window.scrollHandler = function() {
         var windowPosition = $(window).scrollTop() + $(window).height();
         var bottom = $(document).height() - 100;
-        if(windowPosition > bottom) loadPins();
+        if(windowPosition > bottom) loadPins(sorting_order);
     }
 
     /**
@@ -146,6 +148,7 @@ $(window).load(function() {
         if (typeof order === 'undefined') {
             order = "like_count";
         }
+        sorting_order = order;
         if (typeof requester_only === 'undefined') {
             requester_only = false;
         }
@@ -189,7 +192,7 @@ $(window).load(function() {
                 if ($('#pins').length != 0) {
                     var theEnd = document.createElement('div');
                     theEnd.id = 'the-end';
-                    $(theEnd).html('&mdash; End &mdash;');
+                    $(theEnd).html('&mdash; ' + gettext('End') + ' &mdash;');
                     $(theEnd).css('padding', 50);
                     $('body').append(theEnd);
                 }

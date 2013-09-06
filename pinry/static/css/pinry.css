@@ -2,6 +2,7 @@
 body {
     background: #fff;
     margin-top: 94px;
+    margin-bottom: 50px;
 }
 
 a {
@@ -410,7 +411,6 @@ textarea {
 }
 
 #the-end {
-    visibility: hidden;
     font-family: 'Georgia', 'Times', 'Times New Roman', serif;
     font-size: 1.4em;
     font-style: italic;
