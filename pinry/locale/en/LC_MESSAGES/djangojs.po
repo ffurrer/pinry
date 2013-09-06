@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-30 15:40+0200\n"
+"POT-Creation-Date: 2013-09-06 13:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,51 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: static/js/lightbox.js:79 static/js/pinry.js:126 static/js/pinry.js.c:200
-#: static/js/pinry.js.c:230
+#: static/js/lightbox.js:78 static/js/pin-form.js:62
+#: static/js/pin-form.js.c:201 static/js/pinry.js:131 static/js/pinry.js.c:206
 msgid "pinned by"
 msgstr ""
 
-#: static/js/lightbox.js:99 static/js/pinry.js:95
+#: static/js/lightbox.js:100 static/js/pinry.js:97
 msgid "Problem unliking the pin."
 msgstr ""
 
-#: static/js/lightbox.js:113 static/js/pinry.js:106
+#: static/js/lightbox.js:116 static/js/pinry.js:109
 msgid "Problem liking the pin."
 msgstr ""
 
-#: static/js/pinry.js:58
-msgid "new pin"
+#: static/js/lightbox.js:172
+msgid "Problem fetching pin data."
 msgstr ""
 
-#: static/js/pinry.js:74
+#: static/js/lightbox.js:182
+msgid "Problem fetching data."
+msgstr ""
+
+#: static/js/pin-form.js:116
+msgid "Problem uploading image."
+msgstr ""
+
+#: static/js/pin-form.js:160
+msgid "Problem updating image."
+msgstr ""
+
+#: static/js/pin-form.js:182
+msgid "Problem saving image."
+msgstr ""
+
+#: static/js/pin-form.js:199 static/js/pinry.js:58
+msgid "New Pin"
+msgstr ""
+
+#: static/js/pin-form.js:200 static/js/pinry.js:59
+msgid "Post"
+msgstr ""
+
+#: static/js/pinry.js:75
 msgid "Problem deleting image."
+msgstr ""
+
+#: static/js/pinry.js:195
+msgid "End"
 msgstr ""

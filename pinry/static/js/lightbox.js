@@ -169,7 +169,7 @@ $(window).load(function() {
                         createBox(pin);
                     });
                     promise.error(function() {
-                        message('Problem fetching pin data.', 'alert alert-error');
+                        message(gettext('Problem fetching pin data.'), 'alert alert-error');
                     });
                 }
                 else {
@@ -179,7 +179,7 @@ $(window).load(function() {
                         createInfoBox(data);
                     });
                     promise.error(function() {
-                        message('Problem fetching data.', 'alert alert-error');
+                        message(gettext('Problem fetching data.'), 'alert alert-error');
                     });
                 }
                 

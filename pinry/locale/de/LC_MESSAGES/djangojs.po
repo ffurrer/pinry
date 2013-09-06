@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-30 15:40+0200\n"
+"POT-Creation-Date: 2013-09-06 13:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: static/js/lightbox.js:79 static/js/pinry.js:126 static/js/pinry.js.c:200
-#: static/js/pinry.js.c:230
+#: static/js/lightbox.js:78 static/js/pin-form.js:62
+#: static/js/pin-form.js.c:201 static/js/pinry.js:131 static/js/pinry.js.c:206
 msgid "pinned by"
 msgstr "Pin von"
 
-#: static/js/lightbox.js:99 static/js/pinry.js:95
+#: static/js/lightbox.js:100 static/js/pinry.js:97
 msgid "Problem unliking the pin."
 msgstr "Problem beim unliken des Pins aufgetreten."
 
-#: static/js/lightbox.js:113 static/js/pinry.js:106
+#: static/js/lightbox.js:116 static/js/pinry.js:109
 msgid "Problem liking the pin."
 msgstr "Problem beim liken des Pins aufgetreten."
 
-#: static/js/pinry.js:58
-msgid "new pin"
-msgstr ""
+#: static/js/lightbox.js:172
+#, fuzzy
+msgid "Problem fetching pin data."
+msgstr "Problem beim Laden des Bildes."
 
-#: static/js/pinry.js:74
-msgid "Problem deleting image."
-msgstr "Problem beim löschen des Bildes."
+#: static/js/lightbox.js:182
+#, fuzzy
+msgid "Problem fetching data."
+msgstr "Problem beim Laden."
 
+#: static/js/pin-form.js:116
+#, fuzzy
+msgid "Problem uploading image."
+msgstr "Problem beim Hochladen des Bildes."
+
+#: static/js/pin-form.js:160
+#, fuzzy
+msgid "Problem updating image."
+msgstr "Problem beim Auswechseln des Bildes."
+
+#: static/js/pin-form.js:182
+#, fuzzy
+msgid "Problem saving image."
+msgstr "Problem beim Speichern des Bildes."
+
+#: static/js/pin-form.js:199 static/js/pinry.js:58
 msgid "New Pin"
 msgstr "Neuer Pin"
 
+#: static/js/pin-form.js:200 static/js/pinry.js:59
 msgid "Post"
 msgstr "Posten"
+
+#: static/js/pinry.js:75
+msgid "Problem deleting image."
+msgstr "Problem beim Löschen des Bildes."
+
+#: static/js/pinry.js:195
+msgid "End"
+msgstr "Ende"
 
 #~ msgid "Try"
 #~ msgstr "Versuche"

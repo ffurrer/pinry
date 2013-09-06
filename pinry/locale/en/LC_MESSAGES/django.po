@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-28 18:11+0200\n"
+"POT-Creation-Date: 2013-09-06 13:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,51 +25,55 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: templates/base.html:68
+#: templates/base.html:72
+msgid "About"
+msgstr ""
+
+#: templates/base.html:75
 msgid "New Pin"
 msgstr ""
 
-#: templates/base.html:69
+#: templates/base.html:76
 msgid "Logout"
 msgstr ""
 
-#: templates/base.html:71
+#: templates/base.html:79
 msgid "Login"
 msgstr ""
 
-#: templates/base.html:72
+#: templates/base.html:80
 msgid "Register"
 msgstr ""
 
-#: templates/base.html:95
+#: templates/base.html:86
 msgid "Like"
 msgstr ""
 
-#: templates/base.html:96
+#: templates/base.html:87
 msgid "Date"
 msgstr ""
 
-#: templates/base.html:98
+#: templates/base.html:89
 msgid "My Images"
 msgstr ""
 
-#: templates/base.html:100
-msgid "About show my bod"
+#: templates/base.html:99
+msgid "Language"
 msgstr ""
 
-#: templates/flatpages/about.html:5
+#: templates/flatpages/about.html:6
 msgid "BodyTitle"
 msgstr "About Alessandro Show Your Style"
 
-#: templates/flatpages/about.html:13
+#: templates/flatpages/about.html:17
 msgid "Heading"
 msgstr "About Alessandro Show Your Style"
 
-#: templates/flatpages/about.html:15 templates/flatpages/default.html:9
+#: templates/flatpages/about.html:19 templates/flatpages/default.html:9
 msgid "Hello"
 msgstr "Hi"
 
-#: templates/flatpages/about.html:16 templates/flatpages/default.html:10
+#: templates/flatpages/about.html:20 templates/flatpages/default.html:10
 msgid "Blubberli"
 msgstr "Blub"
 

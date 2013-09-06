@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-30 14:51+0200\n"
+"POT-Creation-Date: 2013-09-06 13:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,39 +25,39 @@ msgstr "Deutsch"
 msgid "English"
 msgstr "Englisch"
 
-#: templates/base.html:68
+#: templates/base.html:72
 msgid "About"
 msgstr ""
 
-#: templates/base.html:71
+#: templates/base.html:75
 msgid "New Pin"
 msgstr "Neuer Pin"
 
-#: templates/base.html:72
+#: templates/base.html:76
 msgid "Logout"
 msgstr "Abmelden"
 
-#: templates/base.html:74
+#: templates/base.html:79
 msgid "Login"
 msgstr "Anmelden"
 
-#: templates/base.html:75
+#: templates/base.html:80
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/base.html:81
+#: templates/base.html:86
 msgid "Like"
 msgstr "Like"
 
-#: templates/base.html:82
+#: templates/base.html:87
 msgid "Date"
 msgstr "Datum"
 
-#: templates/base.html:84
+#: templates/base.html:89
 msgid "My Images"
 msgstr "Meine Pins"
 
-#: templates/base.html:91
+#: templates/base.html:99
 msgid "Language"
 msgstr "Sprache"
 
