@@ -27,7 +27,7 @@ msgstr "Englisch"
 
 #: templates/base.html:72
 msgid "About"
-msgstr ""
+msgstr "Über uns"
 
 #: templates/base.html:75
 msgid "New Pin"
@@ -47,11 +47,11 @@ msgstr "Registrieren"
 
 #: templates/base.html:86
 msgid "Like"
-msgstr "Like"
+msgstr "Highlights"
 
 #: templates/base.html:87
 msgid "Date"
-msgstr "Datum"
+msgstr "Neue"
 
 #: templates/base.html:89
 msgid "My Images"
@@ -92,6 +92,3 @@ msgstr ""
 #: users/forms.py:16
 msgid "Password"
 msgstr ""
-
-#~ msgid "About show my bod"
-#~ msgstr "Über Zeig dein Bod"
