@@ -9,7 +9,14 @@ from django.contrib.auth.models import Permission
 @receiver(user_signed_up)
 def signup_cb(request, user, **kwargs):
     permissions = Permission.objects.filter(
-        codename__in=['add_pin', 'change_pin', 'add_image', 'add_like', 'delete_like']
+        codename__in=[
+        'add_pin',
+        'change_pin',
+        'delete_pin',
+        'add_image',
+        'add_like',
+        'delete_like'
+        ]
     )
     user.user_permissions = permissions
 

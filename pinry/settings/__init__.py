@@ -16,13 +16,14 @@ ALLOW_NEW_REGISTRATIONS = True
 
 # Set to False to force users to login before seeing any pins. 
 PUBLIC = True
+LANGUAGE_CODE = 'de'
+
 LANGUAGES = (
   ('de', _('German')),
   ('en', _('English')),
 )
 
 TIME_ZONE = 'America/New_York'
-LANGUAGE_CODE = 'de'
 
 USE_I18N = True
 USE_L10N = True

@@ -69,14 +69,6 @@ msgstr "About Alessandro Show Your Style"
 msgid "Heading"
 msgstr "About Alessandro Show Your Style"
 
-#: templates/flatpages/about.html:19 templates/flatpages/default.html:9
-msgid "Hello"
-msgstr "Hi"
-
-#: templates/flatpages/about.html:20 templates/flatpages/default.html:10
-msgid "Blubberli"
-msgstr "Blub"
-
 #: templates/includes/bookmarklet_link.html:2
 msgid "Bookmarklet"
 msgstr ""

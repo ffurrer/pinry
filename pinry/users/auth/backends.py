@@ -28,8 +28,26 @@ class CombinedAuthBackend(object):
 
     def has_perm(self, user, perm, obj=None):
         """
-        A very simplistic authorization mechanism for now. Basically a pin owner can do anything with the pin.
+        Check if a user is authorized to do an operation on a pin.
+
+        Args:
+            user: django.contrib.auth.models.User object
+            perm: string of the permission
+            obj: pinry.core.models.Pin object if operating on a existing Pin
+                 (default: None)
+        Returns:
+            True if user is authorized False otherwise
         """
         if obj and isinstance(obj, Pin):
-            return obj.submitter == user
+            #TODO(ff): check if this is done nicely
+            if (
+                len(
+                    user.user_permissions.filter(
+                        codename=perm.split('.')[-1]
+                    )
+                ) == 1
+                and obj.submitter.username == user.username
+            ):
+                return True
+            # return obj.submitter.username == user.username
         return False

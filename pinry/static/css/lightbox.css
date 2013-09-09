@@ -28,6 +28,8 @@
 
 .lightbox-data {
     background: white;
+    cursor: default;
+    padding: 10px;
 }
 
 .lightbox-data .description {
@@ -37,11 +39,19 @@
     padding: 8px;
 }
 
+.lightbox-data .avatar {
+    height: 40px;
+    width: 40px;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    margin: 5px;
+}
+
 .lightbox-data .avatar img {
     display: block;
     height: 40px;
     width: 40px;
-    margin: 5px;
     -webkit-border-radius: 3px;
        -moz-border-radius: 3px;
             border-radius: 3px;

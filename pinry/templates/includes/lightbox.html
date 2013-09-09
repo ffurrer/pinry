@@ -11,11 +11,23 @@
                         {{description}}
                     </div>
                 {{/if}}
+                    {{#if submitter.first_name}}
+                    <div class="avatar pull-left" style="background-image: url('https://graph.facebook.com/{{submitter.username}}/picture');background-size:100%;">
+                    </div>
+                    {{else}}
                     <div class="avatar pull-left">
                         <img src="http://gravatar.com/avatar/{{submitter.gravatar}}.jpg">
                     </div>
+                    {{/if}}
                     <div class="text pull-left">
-                        <span class="dim pinned">pinned by</span> {{submitter.username}}
+                        <span class="dim pinned">pinned by</span>
+                        <a href="/pins/user/{{submitter.username}}/">
+                            {{#if submitter.first_name}}
+                                {{submitter.first_name}}
+                            {{else}}
+                                {{submitter.username}}
+                            {{/if}}
+                        </a>
                         {{#if tags}}
                             <br /><span class="dim">in</span>
                         {{#each tags}}

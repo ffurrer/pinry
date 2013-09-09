@@ -50,7 +50,9 @@
             currentUser = {
                 id: "{{ user.id }}",
                 username: "{{ user.username }}",
-                gravatar: "{{ user.gravatar }}"
+                gravatar: "{{ user.gravatar }}",
+                first_name: "{{ user.first_name }}",
+                last_name: "{{ user.last_name }}"
             },
             tagFilter = "{{ request.resolver_match.kwargs.tag }}",
             userFilter = "{{ request.resolver_match.kwargs.user }}";
@@ -63,8 +65,8 @@
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <!-- <a href="{% url 'core:recent-pins' %}" class="brand pull-left">{{ SITE_NAME }}</a> -->
-                <a href="{% url 'core:recent-pins' %}" class="brand pull-left"><img src="{% static "img/logo.png" %}" style="height:50px;z-index: 1001;"></a>
-                <img src="{% static "img/show_your_style.png" %}" class="brand slug pull-left" style="height:57px;">
+                <a href="{% url 'core:recent-pins' %}" class="brand pull-left"><img src="{% static "img/logo.png" %}"></a>
+                <img src="{% static "img/show_your_style.png" %}" class="brand slug pull-left">
                 <!-- <p class="brand pull-left">Show Your Style</p> -->
                 {% load socialaccount %}
                 {% providers_media_js %}

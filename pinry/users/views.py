@@ -30,7 +30,16 @@ class CreateUser(CreateView):
 
     def form_valid(self, form):
         redirect = super(CreateUser, self).form_valid(form)
-        permissions = Permission.objects.filter(codename__in=['add_pin', 'change_pin', 'add_image', 'add_like', 'del_like'])
+        permissions = Permission.objects.filter(
+            codename__in=[
+            'add_pin',
+            'change_pin',
+            'delete_pin',
+            'add_image',
+            'add_like',
+            'delete_like'
+            ]
+        )
         user = authenticate(username=form.cleaned_data['username'],
                             password=form.cleaned_data['password'])
         user.user_permissions = permissions
@@ -42,7 +51,7 @@ class CreateUser(CreateView):
 #         response = super(SignupView, self).form_valid(form)
 #         permissions = Permission.objects.filter(codename__in=['add_pin', 'add_image', 'add_like', 'del_like'])
 #         user.user_permissions = permissions
-#         return repsonse
+#         return response
 
 
 @login_required

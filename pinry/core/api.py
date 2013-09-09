@@ -22,7 +22,6 @@ class PinryAuthorization(DjangoAuthorization):
             raise Unauthorized("You are not allowed to access that resource.")
 
         permission = '%s.change_%s' % (klass._meta.app_label, klass._meta.module_name)
-
         if not bundle.request.user.has_perm(permission, bundle.obj):
             raise Unauthorized("You are not allowed to access that resource.")
 
@@ -35,7 +34,6 @@ class PinryAuthorization(DjangoAuthorization):
             raise Unauthorized("You are not allowed to access that resource.")
 
         permission = '%s.delete_%s' % (klass._meta.app_label, klass._meta.module_name)
-
         if not bundle.request.user.has_perm(permission, bundle.obj):
             raise Unauthorized("You are not allowed to access that resource.")
 

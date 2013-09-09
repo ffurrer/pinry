@@ -69,14 +69,6 @@ msgstr "&Uuml;ber Alessandro Zeig dein Bod"
 msgid "Heading"
 msgstr "&Uuml;ber Alessandro Zeig dein Bod"
 
-#: templates/flatpages/about.html:19 templates/flatpages/default.html:9
-msgid "Hello"
-msgstr "Hallo"
-
-#: templates/flatpages/about.html:20 templates/flatpages/default.html:10
-msgid "Blubberli"
-msgstr "Blubberli in Duetsch"
-
 #: templates/includes/bookmarklet_link.html:2
 msgid "Bookmarklet"
 msgstr "Bookmarklet"
