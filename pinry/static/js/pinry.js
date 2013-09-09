@@ -239,7 +239,7 @@ $(window).load(function() {
     // Set offset for loadPins and do our initial load
     var offset = 0;
     loadPins('-id');
-    loadBrandpartner(1);
+    loadBrandpartner(0);
 
     // If our window gets resized keep the tiles looking clean and in our window
     $(window).resize(function() {

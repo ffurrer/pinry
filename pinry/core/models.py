@@ -72,6 +72,7 @@ class LightBox(models.Model):
     description = models.TextField(blank=True, null=True)
     published = models.DateTimeField(auto_now_add=True)
     image = models.ForeignKey(Image, related_name='lightbox')
+    exclude = models.BooleanField(default=False)
 
     def admin_image(self):
         return '<img src="/media/%s" style="height:50px;"/>' % self.image.get_by_size('thumbnail').image
