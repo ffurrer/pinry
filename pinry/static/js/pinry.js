@@ -181,8 +181,8 @@ $(window).load(function() {
                 }
                 // insert special pins at every insertSpecialEveryN position
                 else if (i%insertSpecialEveryN == (insertSpecialEveryN-1) && i < pins.objects.length -1) {
-                    i+=1;
                     pins.objects.splice(i,0,basicPins.objects[a%insertNSpecial]);
+                    i+=1;
                     a +=1;
                 }
                 // Set which items are editable by the current user
