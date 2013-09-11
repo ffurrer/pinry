@@ -9,7 +9,7 @@ from django_images.models import Image as BaseImage, Thumbnail
 from taggit.managers import TaggableManager
 
 from ..users.models import User
-
+import random
 
 class ImageManager(models.Manager):
     # FIXME: Move this into an asynchronous task
@@ -46,13 +46,14 @@ class Pin(models.Model):
     image = models.ForeignKey(Image, related_name='pin')
     published = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
+    link = models.URLField(null=True)
 
     def admin_image(self):
         return '<img src="/media/%s" style="height:50px;"/>' % self.image.get_by_size('thumbnail').image
     admin_image.allow_tags = True
 
     def __unicode__(self):
-        return u"%s" % self.id
+        return u"Pin with ID: %s" % self.id
         # return u"%s" % (self.url if self.url is not None else "id: %s" % self.id)
 
 
@@ -82,9 +83,29 @@ class LightBox(models.Model):
         return u"%s" % self.title
 
 
-def image_saved(sender, instance, created, **kwargs):
+def saved(sender, instance, created, **kwargs):
     if created and isinstance(instance, Image):
         for size in settings.IMAGE_SIZES.keys():
             Thumbnail.objects.get_or_create_at_size(instance.pk, size)
+    # if created and isinstance(instance, Pin):
+    #     random_integer = random.randint(0,3)
+    #     if random_integer == 0:
+    #         post = CreatePost()
+    #         post.post_pin()
 
-models.signals.post_save.connect(image_saved)
+models.signals.post_save.connect(saved)
+
+
+class CreatePost(object):
+    def __init__(self):
+        self.image_urls = [
+            'http://example.com/image.jpg',
+            'http://example.com/image2.jpg'
+        ]
+    
+    def post_pin(self, name="test"):
+        self.user = User.objects.filter(username=name)[0]
+        image = Image.objects.create_for_url(random.choice(self.image_urls))
+        Pin.objects.create(submitter=self.user, image=image)
+
+

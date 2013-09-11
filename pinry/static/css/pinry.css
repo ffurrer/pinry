@@ -230,7 +230,10 @@ a:hover, a:focus {
     float: left;
     z-index: 1002;
 }
-
+#competition_conditions {
+    margin: 27px 10px 0px 0px;
+    font-size: 10px;
+}
 /* End Navigation */
 
 

@@ -227,7 +227,7 @@ class PinResource(ModelResource):
         return queryset.annotate(like_count=Count('like'))
 
     class Meta:
-        fields = ['id', 'url', 'origin', 'description', 'like_count', 'published']
+        fields = ['id', 'url', 'origin', 'description', 'like_count', 'published', 'link']
         ordering = ['id', 'like_count', 'published']
         filtering = {
             'submitter': ALL_WITH_RELATIONS,

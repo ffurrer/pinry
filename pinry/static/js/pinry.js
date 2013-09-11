@@ -139,7 +139,13 @@ $(window).load(function() {
         var bottom = $(document).height() - 100;
         if(windowPosition > bottom) loadPins(sorting_order);
     }
-
+    basicPins = [];
+    function loadBasicPins(amount) {
+        var apiUrl = '/api/v1/pin/?format=json&order_by=id&limit='+amount;
+        $.get(apiUrl, function(pins) {
+            basicPins = pins;
+        });
+    }
     /**
      * Load our pins using the pins template into our UI, be sure to define a
      * offset outside the function to keep a running tally of your location.
@@ -166,10 +172,25 @@ $(window).load(function() {
         if (requester_only && !userFilter) apiUrl = apiUrl + '&submitter__username=' + currentUser.username;
 
         $.get(apiUrl, function(pins) {
-            // Set which items are editable by the current user
+            var a = Math.floor(Math.random()*insertNSpecial);
             for (var i=0; i < pins.objects.length; i++){
+                //get rid of special pins, that are already in the list
+                if (pins.objects[i].link) {
+                    pins.objects.splice(i,1);
+                    i-=1;
+                }
+                // insert special pins at every insertSpecialEveryN position
+                else if (i%insertSpecialEveryN == (insertSpecialEveryN-1) && i < pins.objects.length -1) {
+                    i+=1;
+                    pins.objects.splice(i,0,basicPins.objects[a%insertNSpecial]);
+                    a +=1;
+                }
+                // Set which items are editable by the current user
                 pins.objects[i].editable = (pins.objects[i].submitter.username == currentUser.username);
             }
+
+
+
 
             // Use the fetched pins as our context for our pins template
             var template = Handlebars.compile($('#pins-template').html());
@@ -238,6 +259,9 @@ $(window).load(function() {
 
     // Set offset for loadPins and do our initial load
     var offset = 0;
+    var insertSpecialEveryN = 3;
+    var insertNSpecial = 2
+    loadBasicPins(insertNSpecial);
     loadPins('-id');
     loadBrandpartner(0);
 

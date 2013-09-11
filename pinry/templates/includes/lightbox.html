@@ -3,7 +3,13 @@
         <div class="lightbox-background">
             <div class="lightbox-wrapper">
                 <div class="lightbox-image-wrapper">
+                    {{#if link}}
+                    <a href="{{link}}">
+                    {{/if}}
                     <img class="lightbox-image" src="{{image.standard.image}}" />
+                    {{#if link}}
+                    </a>
+                    {{/if}}
                 </div>
                 <div class="lightbox-data clearfix">
                 {{#if description}}
