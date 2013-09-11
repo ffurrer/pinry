@@ -12,6 +12,10 @@ class ImageAdmin(admin.ModelAdmin):
 class PinAdmin(admin.ModelAdmin):
     list_display = ('id', 'admin_image', 'submitter')
 
+    def get_form(self, request, obj=None, **kwargs):
+        self.exclude = ('tags',)
+        return super(PinAdmin, self).get_form(request, obj=None, **kwargs)
+
 
 admin.site.register(LightBox, LightBoxAdmin)
 admin.site.register(Image, ImageAdmin)

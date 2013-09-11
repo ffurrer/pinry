@@ -40,13 +40,22 @@ class Image(BaseImage):
 
 class Pin(models.Model):
     submitter = models.ForeignKey(User)
-    url = models.URLField(null=True)
-    origin = models.URLField(null=True)
+    url = models.URLField(
+        null=True,
+        blank=True,
+    )
+    origin = models.URLField(
+        null=True,
+        blank=True,
+    )
     description = models.TextField(blank=True, null=True)
     image = models.ForeignKey(Image, related_name='pin')
     published = models.DateTimeField(auto_now_add=True)
     tags = TaggableManager()
-    link = models.URLField(null=True)
+    link = models.URLField(
+        null=True,
+        blank=True,
+    )
 
     def admin_image(self):
         return '<img src="/media/%s" style="height:50px;"/>' % self.image.get_by_size('thumbnail').image
@@ -69,7 +78,7 @@ class Like(models.Model):
 class LightBox(models.Model):
     title = models.TextField()
     content = models.TextField(blank=True, null=True)
-    link = models.URLField(null=True)
+    link = models.URLField(null=True, blank=True)
     description = models.TextField(blank=True, null=True)
     published = models.DateTimeField(auto_now_add=True)
     image = models.ForeignKey(Image, related_name='lightbox')
