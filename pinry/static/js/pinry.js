@@ -188,9 +188,10 @@ $(window).load(function() {
                 if (pins.objects[i].link) {
                     pins.objects.splice(i,1);
                     i-=1;
+                    break;
                 }
                 // insert special pins at every insertSpecialEveryN position
-                else if (i%insertSpecialEveryN == (insertSpecialEveryN-1) && i < pins.objects.length -1) {
+                if (i%insertSpecialEveryN == (insertSpecialEveryN-1) && i < pins.objects.length -1) {
                     pins.objects.splice(i,0,basicPins.objects[a%insertNSpecial]);
                     i+=1;
                     a +=1;
