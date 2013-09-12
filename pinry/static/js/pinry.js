@@ -167,8 +167,18 @@ $(window).load(function() {
         // Fetch our pins from the api using our current offset
         var apiUrl = '/api/v1/pin/?format=json&order_by='+order+'&offset='+String(offset);
 
-        if (tagFilter) apiUrl = apiUrl + '&tag=' + tagFilter;
-        if (userFilter) apiUrl = apiUrl + '&submitter__username=' + userFilter;
+        if (tagFilter) {
+            apiUrl = apiUrl + '&tag=' + tagFilter;
+            $('#sorter-date').removeClass('active');
+            $('#sorter-mine').removeClass('active');
+            $('#sorter-likes').removeClass('active');
+        }
+        if (userFilter) {
+            apiUrl = apiUrl + '&submitter__username=' + userFilter;
+            $('#sorter-date').removeClass('active');
+            $('#sorter-mine').removeClass('active');
+            $('#sorter-likes').removeClass('active');
+        }
         if (requester_only && !userFilter) apiUrl = apiUrl + '&submitter__username=' + currentUser.username;
 
         $.get(apiUrl, function(pins) {
@@ -272,20 +282,20 @@ $(window).load(function() {
     })
     // Sorting according the most likes
     $('#sorter-likes').click(function() {
-        sortPins('-like_count');
         toggleSorterClass($(this));
+        sortPins('-like_count');
     });
 
     // Sorting according to the most recent uploads
     $('#sorter-date').click(function() {
-        sortPins('-published');
         toggleSorterClass($(this));
+        sortPins('-published');
     });
 
     // Show only user's pins
     $('#sorter-mine').click(function() {
-        sortPins('-published', true);
         toggleSorterClass($(this));
+        sortPins('-published', true);
     });
 
     $("#login_button").hover(function(){
@@ -303,6 +313,9 @@ $(window).load(function() {
     }
 
     function toggleSorterClass(elem) {
+        userFilter = false;
+        tagFilter = false;
+        window.history.pushState("object or string", "Home", "/");
         $('#sorter-date').removeClass('active');
         $('#sorter-mine').removeClass('active');
         $('#sorter-likes').removeClass('active');
