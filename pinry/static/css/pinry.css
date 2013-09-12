@@ -32,8 +32,9 @@ a:hover, a:focus {
     /*filter: none;*/
     height: 48px;
     border-width: 0 0 0px;
-    font-family:'Conv_Lavanderia Sturdy',Sans-Serif;
-    letter-spacing: 3px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family:'Conv_Lavanderia Sturdy',Sans-Serif;*/
+    /*letter-spacing: 3px;*/
 }
 .navbar-fixed-top .navbar-inner > a > img {
     margin-left: 10px;
@@ -159,6 +160,9 @@ a:hover, a:focus {
     background: #fff;
     color: #cd1460;
     text-shadow: none;
+    -webkit-box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 12px 3px rgba(0,0,0,0.75);
 }
 
 .sorter-tabs {
@@ -376,7 +380,7 @@ textarea {
 
 .pin p {
     border-bottom: 1px solid #bbb;
-    font-family: 'Georgia', 'Times', 'Times New Roman', serif;
+    /*font-family: 'Georgia', 'Times', 'Times New Roman', serif;*/
     font-size: 12px;
     margin-bottom: 0;
     padding: 8px;
