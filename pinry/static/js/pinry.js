@@ -77,40 +77,52 @@ $(window).load(function() {
             });
         });
 
-        // Increase / decrease like count if like button clicked
-        $('.icon-like').each(function() {
-            var thisPin = $(this);
-            $(this).off('click');
-            $(this).click(function() {
-                if ($(this).data('liked') == true) {
-                    var promise = unlikePin($(this).data('id'));
-                    // TODO: Change success() to done()
-                    promise.success(function(data) {
-                        var likes = thisPin.data('like_count');
-                        likes--;
-                        thisPin.data('liked', false);
-                        thisPin.removeClass('liked');
-                        thisPin.data('like_count', likes);
-                        thisPin.siblings('.like-count').text(likes);
-                    });
-                    promise.error(function() {
-                        message(gettext('Problem unliking the pin.'), 'alert alert-error');
-                    });
-                }
-                else {
-                    var promise = likePin($(this).data('id'));
-                    promise.success(function(data) {
-                        thisPin.data('liked', true);
-                        thisPin.data('like_count', data);
-                        thisPin.addClass('liked');
-                        thisPin.siblings('.like-count').text(data);
-                    });
-                    promise.error(function() {
-                        message(gettext('Problem liking the pin.'), 'alert alert-error');
-                    });
-                }
+        if (currentUser.username !== "") {
+            // Increase / decrease like count if like button clicked
+            $('.icon-like').each(function() {
+                var thisPin = $(this);
+                $(this).off('click');
+                $(this).click(function() {
+                    if ($(this).data('liked') == true) {
+                        var promise = unlikePin($(this).data('id'));
+                        // TODO: Change success() to done()
+                        promise.success(function(data) {
+                            var likes = thisPin.data('like_count');
+                            likes--;
+                            thisPin.data('liked', false);
+                            thisPin.removeClass('liked');
+                            thisPin.data('like_count', likes);
+                            thisPin.siblings('.like-count').text(likes);
+                        });
+                        promise.error(function() {
+                            message(gettext('Problem unliking the pin.'), 'alert alert-error');
+                        });
+                    }
+                    else {
+                        var promise = likePin($(this).data('id'));
+                        promise.success(function(data) {
+                            thisPin.data('liked', true);
+                            thisPin.data('like_count', data);
+                            thisPin.addClass('liked');
+                            thisPin.siblings('.like-count').text(data);
+                        });
+                        promise.error(function() {
+                            message(gettext('Problem liking the pin.'), 'alert alert-error');
+                        });
+                    }
+                });
             });
-        });
+        }
+        else {
+            $('.icon-like').hover(
+                function () {
+                    $(this).css('cursor', 'default');
+                },
+                function() {
+                    $(this).css('cursor', 'default');
+                }
+            );
+        }
 
         // Show edit-buttons only on mouse over
         $('.pin').each(function(){
