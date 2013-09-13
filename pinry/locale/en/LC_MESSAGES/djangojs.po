@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-06 17:37+0200\n"
+"POT-Creation-Date: 2013-09-13 09:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: static/js/lightbox.js:78 static/js/pin-form.js:62
-#: static/js/pin-form.js.c:201 static/js/pinry.js:131 static/js/pinry.js.c:206
+#: static/js/pin-form.js.c:204 static/js/pinry.js:131 static/js/pinry.js.c:238
 msgid "pinned by"
 msgstr ""
 
@@ -58,6 +58,18 @@ msgstr ""
 msgid "Post"
 msgstr ""
 
+#: static/js/pin-form.js:201
+msgid "Image URL"
+msgstr ""
+
+#: static/js/pin-form.js:202
+msgid "Image Upload"
+msgstr ""
+
+#: static/js/pin-form.js:203
+msgid "Description"
+msgstr ""
+
 #: static/js/pinry.js:58
 msgid "Edit Pin"
 msgstr ""
@@ -66,6 +78,6 @@ msgstr ""
 msgid "Problem deleting image."
 msgstr ""
 
-#: static/js/pinry.js:195
+#: static/js/pinry.js:227
 msgid "End"
 msgstr ""

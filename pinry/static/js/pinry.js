@@ -273,7 +273,7 @@ $(window).load(function() {
     var insertSpecialEveryN = 3;
     var insertNSpecial = 2
     loadBasicPins(insertNSpecial);
-    loadPins('-id');
+    loadPins('-like_count');
     loadBrandpartner(0);
 
     // If our window gets resized keep the tiles looking clean and in our window

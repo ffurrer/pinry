@@ -198,6 +198,9 @@ $(window).load(function() {
         createPinForm(editPinId);
         $('.new-pin').text(gettext('New Pin'));
         $('#pin-form-submit').text(gettext('Post'));
+        $('#label-image-url').text(gettext('Image URL'));
+        $('#label-image-upload').text(gettext('Image Upload'));
+        $('#label-image-description').text(gettext('Description'));
         $('.dim.pinned').text(gettext('pinned by'));
     }
 

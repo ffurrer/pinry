@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-06 13:58+0200\n"
+"POT-Creation-Date: 2013-09-13 09:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,49 +17,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: settings/__init__.py:20
+#: settings/__init__.py:22
 msgid "German"
 msgstr "Deutsch"
 
-#: settings/__init__.py:21
+#: settings/__init__.py:23
 msgid "English"
 msgstr "Englisch"
 
-#: templates/base.html:72
+#: templates/base.html:74
 msgid "About"
 msgstr "Über uns"
 
-#: templates/base.html:75
+#: templates/base.html:77
 msgid "New Pin"
 msgstr "Neuer Pin"
 
-#: templates/base.html:76
+#: templates/base.html:78
 msgid "Logout"
 msgstr "Abmelden"
 
-#: templates/base.html:79
+#: templates/base.html:81
 msgid "Login"
 msgstr "Anmelden"
 
-#: templates/base.html:80
+#: templates/base.html:82
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/base.html:86
+#: templates/base.html:88
 msgid "Like"
 msgstr "Highlights"
 
-#: templates/base.html:87
+#: templates/base.html:89
 msgid "Date"
 msgstr "Neue"
 
-#: templates/base.html:89
+#: templates/base.html:91
 msgid "My Images"
 msgstr "Meine Pins"
 
-#: templates/base.html:99
+#: templates/base.html:101
 msgid "Language"
 msgstr "Sprache"
+
+#: templates/base.html:153
+msgid "Competition Conditions"
+msgstr "Wettbewerbskonditionen"
 
 #: templates/flatpages/about.html:6
 msgid "BodyTitle"
@@ -84,3 +88,10 @@ msgstr ""
 #: users/forms.py:16
 msgid "Password"
 msgstr ""
+
+#: users/views.py:61
+msgid "You have successfully logged out."
+msgstr "Du hast dich erfolgreich ausgeloggt."
+
+msgid "Successfully signed in as %(name)s."
+msgstr "Du hast dich erfolgreich als %(name)s angemeldet."

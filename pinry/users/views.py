@@ -8,6 +8,7 @@ from django.http import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.utils.functional import lazy
 from django.views.generic import CreateView
+from django.utils.translation import ugettext
 
 from .forms import UserCreationForm
 from pinry.users.models import User
@@ -57,7 +58,7 @@ class CreateUser(CreateView):
 @login_required
 def logout_user(request):
     logout(request)
-    messages.success(request, 'You have successfully logged out.')
+    messages.success(request, ugettext('You have successfully logged out.'))
     return HttpResponseRedirect(reverse('core:recent-pins'))
 
 
