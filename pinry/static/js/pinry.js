@@ -283,7 +283,7 @@ $(window).load(function() {
     // Set offset for loadPins and do our initial load
     var offset = 0;
     var insertSpecialEveryN = 3;
-    var insertNSpecial = 2
+    var insertNSpecial = 25;
     loadBasicPins(insertNSpecial);
     loadPins('-like_count');
     loadBrandpartner(0);
