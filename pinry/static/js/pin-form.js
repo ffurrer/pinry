@@ -201,6 +201,8 @@ $(window).load(function() {
         $('#label-image-url').text(gettext('Image URL'));
         $('#label-image-upload').text(gettext('Image Upload'));
         $('#label-image-description').text(gettext('Description'));
+        $('#pin-form-close').text(gettext('Cancel'));
+        $('.qq-upload-button > div').text(gettext('Upload a file'));
         $('.dim.pinned').text(gettext('pinned by'));
     }
 
