@@ -99,8 +99,8 @@ a:hover, a:focus {
 .navbar .brand.slug {
     margin-left: -25px;
     margin-right: -1000px;
-    margin-top: 18px;
-    height: 42px;
+    margin-top: 6px;
+    height: 55px;
 }
 
 .navbar-fixed-top .nav > li > a {
