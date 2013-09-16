@@ -51,9 +51,9 @@ $(window).load(function() {
         // Edit pin if pencil icon clicked
         $('.icon-pencil').each(function() {
             var thisPin = $(this);
-            $(this).off('click');
+            // $(this).off('click');
             $(this).click(function() {
-                $(this).off('click');
+                // $(this).off('click');
                 pinForm($(this).data('id'));
                 $('.new-pin').text(gettext('Edit Pin'));
                 $('#pin-form-submit').text(gettext('Post'));
