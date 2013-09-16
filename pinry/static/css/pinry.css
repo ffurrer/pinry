@@ -53,6 +53,10 @@ a:hover, a:focus {
     cursor: pointer;
 }
 
+.lightbox-data .likes {
+    margin-top: 33px;
+}
+
 .like-count {
     color: #9c9999;
     float: right;
