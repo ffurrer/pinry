@@ -51,7 +51,7 @@ msgstr "Highlights"
 
 #: templates/base.html:89
 msgid "Date"
-msgstr "Neue"
+msgstr "Neu"
 
 #: templates/base.html:91
 msgid "My Images"
