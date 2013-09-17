@@ -3,7 +3,7 @@
         {{#each brandpartners}}
             {{#if exclude}}
             {{else}}
-            <li><a data-lightboxid="{{id}}" id="brandpartner-{{id}}" class="lightbox"><img src="{{image.thumbnail.image}}"></a></li>
+            <li><a data-lightboxid="{{id}}" id="brandpartner-{{id}}" href="{{link}}" target="_blank"><img src="{{image.thumbnail.image}}"></a></li>
             {{/if}}
         {{/each}}
     </script>
