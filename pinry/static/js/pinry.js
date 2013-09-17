@@ -62,18 +62,9 @@ $(window).load(function() {
 
         // Delete pin if trash icon clicked
         $('.icon-trash').each(function() {
-            var thisPin = $(this);
             $(this).off('click');
             $(this).click(function() {
-                $(this).off('click');
-                var promise = deletePinData($(this).data('id'));
-                promise.success(function() {
-                    thisPin.closest('.pin').remove();
-                    tileLayout();
-                });
-                promise.error(function() {
-                    message(gettext('Problem deleting image.'), 'alert alert-error');
-                });
+                yesnodialog(gettext('Yes'), gettext('No'), $(this));
             });
         });
 
@@ -249,6 +240,34 @@ $(window).load(function() {
         offset += apiLimitPerPage;
         $('.dim.pinned').text(gettext('pinned by'));
     }
+
+    function yesnodialog(button1, button2, element){
+      var btns = {};
+      var thisPin = element;
+      btns[button1] = function(){
+            element.off('click');
+            var promise = deletePinData(element.data('id'));
+            promise.success(function() {
+                thisPin.closest('.pin').remove();
+                tileLayout();
+            });
+            promise.error(function() {
+                message(gettext('Problem deleting image.'), 'alert alert-error');
+            });
+
+            $(this).dialog("close");
+      };
+      btns[button2] = function(){ 
+          // Do nothing
+          $(this).dialog("close");
+      };
+      $("<div><p>" + gettext('Do you really want to delete this pin?') + "</p></div>").dialog({
+        autoOpen: true,
+        title: gettext('Delete Pin?'),
+        modal:true,
+        buttons:btns
+      });
+    }    
 
     /**
      * Load our brandpartners using the brandpartner template 

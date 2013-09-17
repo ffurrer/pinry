@@ -455,4 +455,32 @@ textarea {
 .qq-upload-button .qq-upload-button-hover > div {
     
 }
+
+.ui-widget {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+    border-radius: 2px;
+}
+.ui-dialog .ui-dialog-titlebar {
+    padding: 2px 4px;
+}
+.ui-widget-header {
+    border: 0px solid #aaaaaa;
+    margin: -2px;
+}
+.ui-dialog .ui-dialog-titlebar-close {
+    width: 18px;
+    height: 18px;
+}
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 10px;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+    padding: 0px 13px;
+}
+.ui-dialog .ui-dialog-buttonpane {
+    padding: 0px;
+}
 /* End Pins */
