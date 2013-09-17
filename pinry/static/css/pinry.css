@@ -381,7 +381,7 @@ textarea {
             border-top-right-radius: 3px;
     cursor: -webkit-zoom-in;
     cursor:    -moz-zoom-in;
-    display: none;
+    /*display: none;*/
     margin: 0;
     padding: 0;
     width: 240px;
@@ -450,5 +450,9 @@ textarea {
     font-size: 1.4em;
     font-style: italic;
     text-align: center;
+}
+
+.qq-upload-button .qq-upload-button-hover > div {
+    
 }
 /* End Pins */
