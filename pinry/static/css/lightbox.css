@@ -66,3 +66,7 @@
     color: #999;
     font-size: 14px;
 }
+
+#pin-form-image-upload .qq-upload-size {
+    display: block !important;
+}
