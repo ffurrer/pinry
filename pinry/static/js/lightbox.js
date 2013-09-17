@@ -121,7 +121,10 @@ $(window).load(function() {
     // End View Functions
 
     // Start View Functions
-    createInfoBox = function(context) {
+    createInfoBox = function(context, width) {
+        if (width === 'undefined') {
+            width = 524;
+        }
         freezeScroll();
         $('body').append(renderTemplate('#lightbox_container-template', context));
         var box = $('.lightbox-background');
@@ -132,10 +135,10 @@ $(window).load(function() {
             // $(this).fadeIn(200);
         // });
         $('.lightbox-wrapper').css({
-            'width': 524,
+            'width': width,
             'margin-top': 70,
             'margin-bottom': 70,
-            'margin-left': -524/2,
+            'margin-left': -width/2,
             'padding': 20
         });
         if ($('.lightbox-wrapper').height()+140 > $(window).height())
@@ -174,9 +177,9 @@ $(window).load(function() {
                 }
                 else {
                     var promise = getLightbox($(this).data('lightboxid'));
-
+                    var lightboxWidth = 800;
                     promise.success(function(data) {
-                        createInfoBox(data);
+                        createInfoBox(data, lightboxWidth);
                     });
                     promise.error(function() {
                         message(gettext('Problem fetching data.'), 'alert alert-error');
