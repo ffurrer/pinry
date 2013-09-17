@@ -150,7 +150,7 @@ a:hover, a:focus {
 }
 
 .navbar-fixed-bottom .nav > li > a > img {
-    height: 30px;
+    height: 19px;
 }
 
 #bookmarklet {
@@ -244,7 +244,7 @@ a:hover, a:focus {
     z-index: 1002;
 }
 #competition_conditions {
-    margin: 27px 10px 0px 0px;
+    margin: 15px 10px 0px 0px;
     font-size: 10px;
 }
 /* End Navigation */
