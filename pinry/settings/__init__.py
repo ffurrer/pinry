@@ -135,7 +135,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 SOCIALACCOUNT_PROVIDERS = (
     { 
     'facebook':
-        { 'SCOPE': ['email', 'publish_stream'],
+        { 'SCOPE': ['email'],
           # 'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
           'METHOD': 'oauth2',  # 'js_sdk',  # ,
           'LOCALE_FUNC': lambda request: 'de'} 

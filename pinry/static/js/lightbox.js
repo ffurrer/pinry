@@ -58,7 +58,7 @@ $(window).load(function() {
         });
         $('.lightbox-wrapper').css({
             'width': context.image.standard.width,
-            'margin-top': 70,
+            'margin-top': 74,
             'margin-bottom': 70,
             'margin-left': -context.image.standard.width/2
         });
