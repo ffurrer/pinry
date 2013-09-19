@@ -81,7 +81,7 @@
                     <li><a onclick="pinForm()">{% trans "New Pin" %}</a></li>
                     <li><a href="{% url 'users:logout' %}">{% trans "Logout" %}</a></li>
                 {% else %}
-                    <li><a href='{% provider_login_url "facebook" method="oauth2" %}' id="login_button"><div id="fb-logo"></div>Login</a></li>
+                    <li><a href='{% provider_login_url "facebook" method="oauth2" %}' id="login_button"><div id="fb-logo"></div>{% trans "Login" %}</a></li>
                     <!-- <li><a href="{% url 'users:login' %}">{% trans "Login" %}</a></li> -->
                     <!-- <li><a href="{% url 'users:register' %}">{% trans "Register" %}</a></li> -->
                 {% endif %}
