@@ -136,7 +136,7 @@ $(window).load(function() {
         // });
         $('.lightbox-wrapper').css({
             'width': width,
-            'margin-top': 70,
+            'margin-top': 74,
             'margin-bottom': 70,
             'margin-left': -width/2,
             'padding': 20
