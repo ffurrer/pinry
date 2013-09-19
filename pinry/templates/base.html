@@ -155,7 +155,7 @@
                 <ul class="nav pull-left" id="brandpartners">
                 </ul>
                 <ul class="nav pull-right" id="competition_conditions">
-                    <a data-lightboxid="1000" id="competition_prizes-link" class="lightbox" style:" color:#444;">{% trans "Prizes" %}</a> |
+                    <a data-lightboxid="1000" data-width="800" id="competition_prizes-link" class="lightbox" style:" color:#444;">{% trans "Prizes" %}</a> |
                     <a data-lightboxid="2" id="competition_conditions-link" class="lightbox" style:" color:#444;">{% trans "Competition Conditions" %}
                     </a>
                 </ul>
@@ -176,6 +176,18 @@
         <script src="{% static "js/lightbox.js" %}"></script>
         <script src="{% static "js/pinry.js" %}"></script>
         <script src="{% static "js/pin-form.js" %}"></script>
+        {% if prize_view and not user.is_authenticated %}
+        <script>
+            $(document).ready(function() {
+                var readyStateCheckInterval = setInterval(function() {
+                    if ($._data(document.getElementById('competition_prizes-link'), "events")) {
+                        $('#competition_prizes-link').trigger('click');
+                        clearInterval(readyStateCheckInterval);
+                    }
+                }, 20);
+            });
+        </script>
+        {% endif %}
         {% endcompress %}
         {% compress js inline %}
         {% block extra_js %}{% endblock %}

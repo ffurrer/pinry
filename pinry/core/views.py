@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.views.generic import CreateView
+from django.views.generic.base import TemplateView
 from django_images.models import Image
 
 from braces.views import JSONResponseMixin, LoginRequiredMixin
@@ -34,3 +35,37 @@ class CreateImage(JSONResponseMixin, LoginRequiredMixin, CreateView):
     def form_invalid(self, form):
         return self.render_json_response({'error': form.errors})
 
+class PinView(TemplateView):
+    def get(self, request, *args, **kwargs):
+        response = super(PinView, self).get(request, *args, **kwargs)
+        # prize_view set to True (show overlay)
+        if 'prize_view' in request.COOKIES and request.COOKIES['prize_view'] == 'True':
+            response.context_data[u'prize_view'] = True
+            response.set_cookie(
+                key='prize_view',
+                value=False,
+            )
+            return response
+        if 'prize_view' in request.COOKIES and request.COOKIES['prize_view'] == 'False':
+            response.context_data[u'prize_view'] = False
+            response.set_cookie(
+                key='prize_view',
+                value=False,
+            )
+            return response
+        # prize_view in args, set the cookie and (maybe show overlay)
+        if 'prize_view' in args:
+            response.context_data[u'prize_view'] = args['prize_view']
+            response.set_cookie(
+                key='prize_view',
+                value=args['prize_view'],
+            )
+            return response
+        # else no cookie exists
+        else:
+            response.context_data[u'prize_view'] = True
+            response.set_cookie(
+                key='prize_view',
+                value=False,
+            )
+            return response

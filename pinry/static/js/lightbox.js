@@ -177,7 +177,12 @@ $(window).load(function() {
                 }
                 else {
                     var promise = getLightbox($(this).data('lightboxid'));
-                    var lightboxWidth = 800;
+                    if ($(this).data('width') !== undefined) {
+                        var lightboxWidth = $(this).data('width');
+                    }
+                    else {
+                        var lightboxWidth = 800;
+                    }
                     promise.success(function(data) {
                         createInfoBox(data, lightboxWidth);
                     });
@@ -185,7 +190,6 @@ $(window).load(function() {
                         message(gettext('Problem fetching data.'), 'alert alert-error');
                     });
                 }
-                
             });
         });
     }
