@@ -107,7 +107,9 @@ $(window).load(function() {
         else {
             $('.icon-like').hover(
                 function () {
-                    $(this).css('cursor', 'default');
+                    elem = $(this);
+                    elem.css('cursor', 'default');
+                    elem.attr('title',gettext('You need to be logged in to like this pin.'));
                 },
                 function() {
                     $(this).css('cursor', 'default');

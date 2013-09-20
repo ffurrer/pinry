@@ -107,5 +107,8 @@ msgstr "Willst du diesen Pin wirklich löschen?"
 msgid "Delete Pin?"
 msgstr "Pin löschen?"
 
+msgid "You need to be logged in to like this pin."
+msgstr "Du musst angemeldet sein, um diesen Pin zu liken."
+
 #~ msgid "Try"
 #~ msgstr "Versuche"
