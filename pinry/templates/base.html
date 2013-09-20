@@ -157,6 +157,7 @@
                 <ul class="nav pull-right" id="competition_conditions">
                     <a data-lightboxid="1000" data-width="800" id="competition_prizes-link" class="lightbox" style:" color:#444;">{% trans "Prizes" %}</a> |
                     <a data-lightboxid="2" id="competition_conditions-link" class="lightbox" style:" color:#444;">{% trans "Competition Conditions" %}
+                    <a data-lightboxid="1001" data-width="800" id="competition_welcome-link" class="lightbox" style:" visibility:hidden;">{% trans "Welcome" %}</a>
                     </a>
                 </ul>
             </div>
@@ -180,8 +181,8 @@
         <script>
             $(document).ready(function() {
                 var readyStateCheckInterval = setInterval(function() {
-                    if ($._data(document.getElementById('competition_prizes-link'), "events")) {
-                        $('#competition_prizes-link').trigger('click');
+                    if ($._data(document.getElementById('competition_welcome-link'), "events")) {
+                        $('#competition_welcome-link').trigger('click');
                         clearInterval(readyStateCheckInterval);
                     }
                 }, 20);
