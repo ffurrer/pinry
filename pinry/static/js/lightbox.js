@@ -62,8 +62,8 @@ $(window).load(function() {
             'margin-bottom': 70,
             'margin-left': -context.image.standard.width/2
         });
-        if ($('.lightbox-wrapper').height()+140 > $(window).height())
-            $('.lightbox-background').height($('.lightbox-wrapper').height()+140);
+        if ($('.lightbox-wrapper').height()+144 > $(window).height())
+            $('.lightbox-background').height($('.lightbox-wrapper').height()+144);
 
         box.click(function() {
             $(this).fadeOut(200);
@@ -141,8 +141,8 @@ $(window).load(function() {
             'margin-left': -width/2,
             'padding': 20
         });
-        if ($('.lightbox-wrapper').height()+140 > $(window).height())
-            $('.lightbox-background').height($('.lightbox-wrapper').height()+140);
+        if ($('.lightbox-wrapper').outerHeight(true) > $(window).height())
+            $('.lightbox-background').height($('.lightbox-wrapper').outerHeight(true));
 
         box.click(function() {
             $(this).fadeOut(200);
