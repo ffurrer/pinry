@@ -6,6 +6,7 @@ from tastypie.resources import ModelResource
 from tastypie.utils import trailing_slash
 from django.conf.urls import url
 from django_images.models import Thumbnail
+from django.db.models import Count
 
 from .models import Pin, Image, Like, LightBox
 from ..users.models import User
@@ -222,7 +223,6 @@ class PinResource(ModelResource):
         return super(PinResource, self).save_m2m(bundle)
 
     def get_object_list(self, request):
-        from django.db.models import Count
         queryset = super(PinResource, self).get_object_list(request)
         return queryset.annotate(like_count=Count('like'))
 
