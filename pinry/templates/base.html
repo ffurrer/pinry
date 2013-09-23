@@ -13,9 +13,9 @@
               content="Stelle Fotos von dir in deinem schönsten – ausgeflipptesten – schrägsten – buntesten – verführerischsten Outfit online. Mit Striplac, Nagellack oder auch natürlichen Nägeln."/>
         {%if pinid %}
         <script type="text/javascript">
-            var promise = $.get('/api/v1/image/{{ pinid }}/?format=json');
-            promise.success(function(image) {
-                metaString = '<meta property="og:image" content="http://alessandro.dealini.ch'+image.thumbnail.image+'"/>';
+            var promise = $.get('/api/v1/pin/{{ pinid }}/?format=json');
+            promise.success(function(pin) {
+                metaString = '<meta property="og:image" content="http://alessandro.dealini.ch'+pin.image.image+'"/>';
                 $('head').append( metaString );
                 $('head').append( '<meta property="og:url" content="http://alessandro.dealini.ch/pin/{{pinid}}"/>' );
             });
