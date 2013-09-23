@@ -52,6 +52,10 @@ a:hover, a:focus {
 .icon-like:hover {
     cursor: pointer;
 }
+.icon-like .login-to-see-content {
+    
+}
+
 
 .lightbox-data .likes {
     margin-top: 33px;
@@ -108,8 +112,8 @@ a:hover, a:focus {
 .navbar .brand.slug {
     margin-left: -25px;
     margin-right: -1000px;
-    margin-top: 6px;
-    height: 55px;
+    margin-top: -6px;
+    height: 70px;
 }
 
 .navbar-fixed-top .nav > li > a {
