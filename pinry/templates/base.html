@@ -8,7 +8,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         {%if pinid %}
         <script type="text/javascript">
-            var promise = $.get('/api/v1/image/{% pindid %}/?format=json');
+            var promise = $.get('/api/v1/image/{{ pinid }}/?format=json');
             promise.success(function(image) {
                 metaString = '<meta property="og:image" content="'+image.thumbnail.image+'">';
                 $('head').append( metaString );
