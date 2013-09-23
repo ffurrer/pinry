@@ -17,9 +17,9 @@
             promise.success(function(pin) {
                 metaString = '<meta property="og:image" content="http://alessandro.dealini.ch'+pin.image.image+'"/>';
                 $('head').append( metaString );
-                $('head').append( '<meta property="og:url" content="http://alessandro.dealini.ch/pin/{{pinid}}"/>' );
             });
         </script>
+        <meta property="og:url" content="http://alessandro.dealini.ch/pin/{{pinid}}"/>
         {%else %}
         <meta property="og:image" content="http://alessandro.dealini.ch/static/img/show_your_style.png">
         <meta property="og:url" content="http://alessandro.dealini.ch/" />
