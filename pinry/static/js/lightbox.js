@@ -62,11 +62,12 @@ $(window).load(function() {
             'margin-bottom': 70,
             'margin-left': -context.image.standard.width/2
         });
-        if ($('.lightbox-wrapper').height()+144 > $(window).height())
-            $('.lightbox-background').height($('.lightbox-wrapper').height()+144);
+        if ($('.lightbox-wrapper').outerHeight(true) > $(window).height())
+            $('.lightbox-background').height($('.lightbox-wrapper').outerHeight(true));
 
         box.click(function() {
             $(this).fadeOut(200);
+            window.history.pushState("object or string", "Home", "/");
             setTimeout(function() {
                 box.remove();
             }, 200);
@@ -170,6 +171,7 @@ $(window).load(function() {
 
                     promise.success(function(pin) {
                         createBox(pin);
+                        window.history.pushState("object or string", "Home", "/pin/" + pin.id);
                     });
                     promise.error(function() {
                         message(gettext('Problem fetching pin data.'), 'alert alert-error');

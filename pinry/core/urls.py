@@ -45,6 +45,11 @@ urlpatterns = patterns('',
         name='tag-pins',
     ),
     url(
+        r'^pin/(?P<pinid>([0-9]+))/$',
+        TemplateView.as_view(template_name='core/pins.html'),
+        name='id-pin',
+    ),
+    url(
         r'^pins/user/(?P<user>(\w|-|\.)+)/$',
         TemplateView.as_view(template_name='core/pins.html'),
         name='user-pins',

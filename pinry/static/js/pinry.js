@@ -217,6 +217,19 @@ $(window).load(function() {
 
             // We need to then wait for images to load in and then tile
             tileLayout();
+            if (pinFilter) {
+                console.log("pin: " + pinFilter);
+                var promise = getPinData(pinFilter);
+                promise.success(function(pin) {
+                    createBox(pin);
+                    window.history.pushState("object or string", "Home", "/pin/" + pin.id);
+                    // tileLayout();
+                });
+                promise.error(function() {
+                    message(gettext('Problem fetching pin data.'), 'alert alert-error');
+                });
+                console.log("should have opened it.");
+            }
             lightbox();
             $('#pins').ajaxStop(function() {
                 $('img').load(function() {
@@ -349,6 +362,7 @@ $(window).load(function() {
     function toggleSorterClass(elem) {
         userFilter = false;
         tagFilter = false;
+        pinFilter = false;
         window.history.pushState("object or string", "Home", "/");
         $('#sorter-date').removeClass('active');
         $('#sorter-mine').removeClass('active');
