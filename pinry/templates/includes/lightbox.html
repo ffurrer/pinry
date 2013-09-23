@@ -36,6 +36,17 @@
                         </a>
                     </div>
                     <div class="likes pull-right">
+                        <div class="facebook-share">
+                            <a href="#" 
+                              onclick="
+                                window.open(
+                                  'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+                                  'facebook-share-dialog', 
+                                  'width=626,height=436'); 
+                                return false;">
+                              <div class="fb-share-logo"></div>Share
+                            </a>
+                        </div>
                         <div class="icon-like{{#if liked}} liked{{/if}}" data-like_count="{{like_count}}" data-liked="{{liked}}" data-id="{{id}}"></div>
                         <div class="like-count">{{like_count}}</div>
                     </div>

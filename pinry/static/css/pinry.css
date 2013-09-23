@@ -55,10 +55,23 @@ a:hover, a:focus {
 .icon-like .login-to-see-content {
     
 }
+.facebook-share {
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+.fb-share-logo {
+    background-image: url("../img/facebook_f_iv.png");
+    width: 20px;
+    height: 20px;
+    vertical-align: -4px;
+    margin-right: 4px;
+    display: inline-block;
+}
 
 
 .lightbox-data .likes {
-    margin-top: 33px;
+    margin-top: 0px;
 }
 
 .like-count {
