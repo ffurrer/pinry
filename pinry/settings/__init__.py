@@ -9,7 +9,7 @@ SITE_ROOT = os.path.join(os.path.realpath(os.path.dirname(__file__)), '../../')
 
 
 # Changes the naming on the front-end of the website.
-SITE_NAME = 'Show Your Style'
+SITE_NAME = 'Striplac Style of the Year'
 
 # Set to False to disable people from creating new accounts.
 ALLOW_NEW_REGISTRATIONS = True
