@@ -218,7 +218,6 @@ $(window).load(function() {
             // We need to then wait for images to load in and then tile
             tileLayout();
             if (pinFilter) {
-                console.log("pin: " + pinFilter);
                 var promise = getPinData(pinFilter);
                 promise.success(function(pin) {
                     createBox(pin);
@@ -228,7 +227,6 @@ $(window).load(function() {
                 promise.error(function() {
                     message(gettext('Problem fetching pin data.'), 'alert alert-error');
                 });
-                console.log("should have opened it.");
             }
             lightbox();
             $('#pins').ajaxStop(function() {

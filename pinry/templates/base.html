@@ -4,7 +4,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta property="og:image" content="http://http://alessandro.dealini.ch/static/img/show_your_style.png">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        {%if pinid %}
+        <script type="text/javascript">
+            var promise = $.get('/api/v1/image/86/?format=json');
+            promise.success(function(image) {
+                metaString = '<meta property="og:image" content="http://alessandro.dealini.ch'+image.thumbnail.image+'">';
+                $('head').append( metaString );
+            });
+        </script>
+        {%else %}
+        <meta property="og:image" content="http://alessandro.dealini.ch/static/img/show_your_style.png">
+        {% endif %}
         <meta property="og:site_name" content="Striplac Style of the Year">
         <meta property="og:description"
               content="Stelle Fotos von dir in deinem schönsten – ausgeflipptesten – schrägsten – buntesten – verführerischsten Outfit online. Mit Striplac, Nagellack oder auch natürlichen Nägeln."/>
@@ -170,8 +182,7 @@
         <!-- End Banners Bottom -->
 
         <!-- JavaScript -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        
         <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0-rc.3/handlebars.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/file-uploader/3.1.1/jquery.fineuploader.min.js"></script>
