@@ -77,6 +77,8 @@ $(window).load(function() {
             event.stopPropagation();
         });
         $('.dim.pinned').text(gettext('pinned by'));
+        $('.fb-share-text').text(gettext('Share'));
+
 
         // Increase / decrease like count if like button clicked
         $('.lightbox-data .icon-like').click(function() {

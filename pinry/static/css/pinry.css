@@ -68,7 +68,9 @@ a:hover, a:focus {
     margin-right: 4px;
     display: inline-block;
 }
-
+.fb-share-text {
+    display: inline-block;
+}
 
 .lightbox-data .likes {
     margin-top: 0px;
