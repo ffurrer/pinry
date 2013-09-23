@@ -10,7 +10,7 @@
         <script type="text/javascript">
             var promise = $.get('/api/v1/image/86/?format=json');
             promise.success(function(image) {
-                metaString = '<meta property="og:image" content="http://alessandro.dealini.ch'+image.thumbnail.image+'">';
+                metaString = '<meta property="og:image" content="'+image.thumbnail.image+'">';
                 $('head').append( metaString );
             });
         </script>
