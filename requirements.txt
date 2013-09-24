@@ -7,5 +7,6 @@ mock
 factory-boy>=1.3,<2.0
 django_compressor
 requests
+python-memcached
 http://github.com/kklimonda/django-images/tarball/master#egg=django-images
 http://github.com/hcarvalhoalves/django-taggit/tarball/master#egg=django-taggit
