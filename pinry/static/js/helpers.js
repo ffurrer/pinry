@@ -69,9 +69,12 @@ function likePin(pinId) {
 }
 
 function unlikePin(pinId) {
-    var apiUrl = '/api/v1/pin/'+pinId+'/likes?format=json';
-    return $.ajax(apiUrl, {
-        type: 'DELETE'
+    var apiUrl = '/api/v1/pin/'+pinId+'/likes/';
+    return $.ajax({
+        url: apiUrl,
+        type: 'DELETE',
+        contentType: 'application/json',
+        data: '{}'
     });
 }
 
