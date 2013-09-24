@@ -9,6 +9,7 @@ from braces.views import JSONResponseMixin, LoginRequiredMixin
 from django_images.models import Thumbnail
 
 from .forms import ImageForm
+from .models import Pin
 
 DEFAULT_TEMPLATE = 'flatpages/default.html'
 
@@ -38,6 +39,12 @@ class CreateImage(JSONResponseMixin, LoginRequiredMixin, CreateView):
 class PinView(TemplateView):
     def get(self, request, *args, **kwargs):
         response = super(PinView, self).get(request, *args, **kwargs)
+
+        # extra query in case the URL pints directly to a pin
+        if 'pinid' in kwargs:
+            pin = Pin.objects.get(id=kwargs['pinid'])
+            response.context_data['image_url'] = pin.image.image
+
         # prize_view set to True (show overlay)
         if 'prize_view' in request.COOKIES and request.COOKIES['prize_view'] == 'True':
             response.context_data[u'prize_view'] = True
