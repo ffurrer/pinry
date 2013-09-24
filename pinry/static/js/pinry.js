@@ -110,9 +110,12 @@ $(window).load(function() {
                     elem = $(this);
                     elem.css('cursor', 'default');
                     elem.attr('title',gettext('You need to be logged in to like this pin.'));
+                    elem.tooltip('show');
                 },
                 function() {
-                    $(this).css('cursor', 'default');
+                    elem = $(this);
+                    elem.css('cursor', 'default');
+                    elem.tooltip('hide');
                 }
             );
         }
