@@ -44,6 +44,7 @@ class PinView(TemplateView):
         if 'pinid' in kwargs:
             pin = Pin.objects.get(id=kwargs['pinid'])
             response.context_data['image_url'] = pin.image.image
+            response.context_data['image_description'] = pin.description
 
         # prize_view set to True (show overlay)
         if 'prize_view' in request.COOKIES and request.COOKIES['prize_view'] == 'True':
