@@ -7,6 +7,7 @@ from tastypie.utils import trailing_slash
 from django.conf.urls import url
 from django_images.models import Thumbnail
 from django.db.models import Count
+from tastypie.cache import SimpleCache
 
 from .models import Pin, Image, Like, LightBox
 from ..users.models import User
@@ -237,3 +238,4 @@ class PinResource(ModelResource):
         include_resource_uri = False
         always_return_data = True
         authorization = PinryAuthorization()
+        cache = SimpleCache(timeout=20)

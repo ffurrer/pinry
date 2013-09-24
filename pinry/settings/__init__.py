@@ -39,6 +39,8 @@ STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
 TEMPLATE_DIRS = [os.path.join(SITE_ROOT, 'pinry/templates')]
 STATICFILES_DIRS = [os.path.join(SITE_ROOT, 'pinry/static')]
 
+CACHE_BACKEND = 'memcached://127.0.0.1:11211/?timeout=60'
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
